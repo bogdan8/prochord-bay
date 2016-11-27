@@ -1,11 +1,14 @@
 <h2>Log in</h2>
 <!--Facebook-->
-
-<button type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Facebook</button>
+<a type="button" href="/users/auth/facebook" class="btn btn-fb">
+  <%= fa_icon 'facebook' %>
+  Facebook
+</a>
 <!--Twitter-->
-<button type="button" class="btn btn-tw"><i class="fa fa-twitter left"></i> Twitter</button>
-<li><%= link_to 'facebook', '/users/auth/facebook' %></li>
-<li><%= link_to 'twitter', '/users/auth/twitter' %></li>
+<a type="button" href="/users/auth/twitter" class="btn btn-tw">
+  <%= fa_icon 'twitter' %>
+  Twitter
+</a>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="field">
