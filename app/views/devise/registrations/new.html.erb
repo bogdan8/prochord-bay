@@ -5,7 +5,7 @@
 
     <div class="field">
       <%= f.label :name %><br/>
-      <%= f.text_field :name%>
+      <%= f.text_field :name %>
     </div>
 
     <div class="field">
@@ -25,9 +25,13 @@
       <%= f.label :password_confirmation %><br/>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
+    <div class="field">
+      <%= recaptcha_tags %>
+    </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "Зареєструватись", id: 'devise-button-submit'%>
+      <%= spinner_css %>
     </div>
 <% end %>
 

@@ -29,14 +29,22 @@
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
       <%= f.password_field :current_password, autocomplete: "off" %>
     </div>
+    <div class="field">
+      <%= recaptcha_tags %>
+    </div>
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Обновити",id: 'devise-button-submit', %>
+      <%= spinner_css %>
     </div>
 <% end %>
 
 <h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %></p>
+<%= button_to 'Видалити мій акаунт',
+              registration_path(resource_name),
+              id: 'devise-button-submit',
+              data: {confirm: 'Ви впевнені?'},
+              method: :delete %>
+<%= spinner_css %>
 
 <%= link_to "Back", :back %>

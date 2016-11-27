@@ -1,0 +1,5 @@
+uk:
+  recaptcha:
+    errors:
+      verification_failed: 'Ви не пройшли перевірку'
+      recaptcha_unreachable: 'Помилка'
