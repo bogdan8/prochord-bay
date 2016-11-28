@@ -1,38 +1,62 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-lg-offset-3 col-md-5 col-md-offset-3 col-sm-10 col-xs-12">
+      <!-- Square card -->
+      <div class="demo-card-square mdl-card mdl-shadow--2dp" id="devise-cart">
+        <div class="mdl-card__title mdl-card--expand">
+          <%= image_tag('music/2',class: 'devise-image-cart') %>
+          <h2 class="mdl-card__title-text">Реєстрація</h2>
+        </div>
+        <div class="mdl-card__actions mdl-card--border button-with-between">
+          <a type="button" href="/users/auth/facebook" class="btn-fb mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color: #4264aa">
+            <%= fa_icon 'facebook' %>
+            Facebook
+          </a>
+          <!--Twitter-->
+          <a type="button" href="/users/auth/twitter" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color: #55ACEE">
+            <%= fa_icon 'twitter' %>
+            Twitter
+          </a>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages_alert! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+              <div id="devise-form">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" autofocus="autofocus" name="user[name]" id="user_name">
+                  <label class="mdl-textfield__label" for="user_name">Name</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="email" name="user[email]" id="user_email">
+                  <label class="mdl-textfield__label" for="user_email">Email</label>
+                </div>
 
-    <div class="field">
-      <%= f.label :name %><br/>
-      <%= f.text_field :name %>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="password" name="user[password]" id="user_password">
+                  <em>(6 characters minimum)</em>
+                  <br>
+                  <label class="mdl-textfield__label" for="user_password">Password</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+                  <label class="mdl-textfield__label" for="user_password_confirmation">Password confirmation</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <%= recaptcha_tags %>
+                </div>
+
+                <br>
+                <br>
+                <input type="submit" name="commit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Зареєструватись" id="devise-button-submit" data-disable-with="Зареєструватись">
+                <%= spinner_css %>
+              </div>
+              <%= render "devise/shared/links" %>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br/>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-    <div class="field">
-      <%= recaptcha_tags %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Зареєструватись", id: 'devise-button-submit'%>
-      <%= spinner_css %>
-    </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
