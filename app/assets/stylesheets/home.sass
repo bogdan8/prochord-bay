@@ -8,7 +8,7 @@ html
 
 body
   @extend html
-  background-color: white
+  background-color: $white
 
 .flex-center-block
   display: flex
@@ -18,10 +18,18 @@ body
 
 .search-inputs
   width: 500px
+  .mdl-textfield
+    width: 500px
+  .mdl-textfield__label
+    color: $primary
+  .mdl-textfield__input
+    border-bottom: 1px solid $primary
 
 .button-with-between
   display: flex
   justify-content: space-between
+  .mdl-button
+    border-radius: 0
 
 .control-label-primary
   color: $primary

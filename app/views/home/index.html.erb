@@ -1,15 +1,21 @@
 <div class="flex-center-block">
   <div class="search-inputs">
-    <div class="inputs">
-      <div class="form-group has-primary label-floating">
-        <label for="f1" class="control-label-primary">Введіть назву пісні:</label>
-        <input type="email" class="form-control" id="f1">
+    <form action="#">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="sample3">
+        <label class="mdl-textfield__label" for="sample3">Введіть назву пісні</label>
       </div>
+    </form>
       <div class="button-with-between">
-        <button type="button" class="btn btn-primary">Пошук</button>
-        <a href="songs" type="button" class="btn btn-info">Всі пісні</a>
-        <a type="button" class="btn btn-warning">Додати пісню</a>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          <%= fa_icon 'search' %> Пошук
+        </button>
+        <a href="songs" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          <%= fa_icon 'music' %> Всі пісні
+        </a>
+        <a type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          <%= fa_icon 'plus' %> Додати пісню
+        </a>
       </div>
-    </div>
   </div>
 </div>
