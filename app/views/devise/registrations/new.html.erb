@@ -4,7 +4,7 @@
       <!-- Square card -->
       <div class="demo-card-square mdl-card mdl-shadow--2dp" id="devise-cart">
         <div class="mdl-card__title mdl-card--expand">
-          <%= image_tag('music/2',class: 'devise-image-cart') %>
+          <%= image_tag('music/2', class: 'devise-image-cart') %>
           <h2 class="mdl-card__title-text">Реєстрація</h2>
         </div>
         <div class="mdl-card__actions mdl-card--border button-with-between">
@@ -24,32 +24,32 @@
 
               <div id="devise-form">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" autofocus="autofocus" name="user[name]" id="user_name">
-                  <label class="mdl-textfield__label" for="user_name">Name</label>
+                  <%= f.text_field :name, class: 'mdl-textfield__input' %>
+                  <%= f.label :name, class: 'mdl-textfield__label' %>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="email" name="user[email]" id="user_email">
-                  <label class="mdl-textfield__label" for="user_email">Email</label>
-                </div>
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="password" name="user[password]" id="user_password">
-                  <em>(6 characters minimum)</em>
-                  <br>
-                  <label class="mdl-textfield__label" for="user_password">Password</label>
+                  <%= f.email_field :email, class: 'mdl-textfield__input', autofocus: true %>
+                  <%= f.label :email, class: 'mdl-textfield__label' %>
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="password" name="user[password_confirmation]" id="user_password_confirmation">
-                  <label class="mdl-textfield__label" for="user_password_confirmation">Password confirmation</label>
+                  <%= f.password_field :password, class: 'mdl-textfield__input', autocomplete: 'off' %>
+                  <%= f.label :password, class: 'mdl-textfield__label' %>
+                  <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br/>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <%= f.password_field :password_confirmation, class: 'mdl-textfield__input', autocomplete: 'off' %>
+                  <%= f.label :password_confirmation, class: 'mdl-textfield__label' %><br/>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <%= recaptcha_tags %>
                 </div>
-
                 <br>
                 <br>
-                <input type="submit" name="commit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Зареєструватись" id="devise-button-submit" data-disable-with="Зареєструватись">
+                <%= f.submit 'Зареєструватись', id: 'devise-button-submit', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
                 <%= spinner_css %>
               </div>
               <%= render "devise/shared/links" %>

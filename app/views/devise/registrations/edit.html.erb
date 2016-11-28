@@ -57,7 +57,7 @@
 
                 <br>
                 <br>
-                <input type="submit" name="commit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Обновити" id="devise-button-submit" data-disable-with="Обновити">
+                <%= f.submit 'Обновити', id: 'devise-button-submit', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
                 <%= spinner_css %>
               </div>
               <br>
@@ -74,7 +74,7 @@
           <ul class="demo-list-item mdl-list">
             <li class="mdl-list__item">
                   <span class="mdl-list__item-primary-content">
-                  <%= link_to "Back", :back %>
+                  <%= link_to 'Back', :back %>
                   </span>
             </li>
           </ul>
