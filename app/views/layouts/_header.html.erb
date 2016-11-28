@@ -5,7 +5,11 @@
   </button>
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
       for="demo-menu-lower-right">
-    <li class="mdl-menu__item"><%= link_to 'Головна', root_path %></li>
+    <li>
+      <%= link_to root_path, class: 'mdl-menu__item' do %>
+          <%= fa_icon 'home' %> Головна
+      <% end %>
+    </li>
     <li>
       <%= link_to root_path, class: 'mdl-menu__item' do %>
           <%= fa_icon 'music' %> Всі пісні
