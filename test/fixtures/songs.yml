@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  performer: MyString
+  title: MyString
+  body: MyText
+  count_views: 1
+
+two:
+  performer: MyString
+  title: MyString
+  body: MyText
+  count_views: 1
