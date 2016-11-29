@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-6 col-lg-offset-3 col-xs-12">
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
       <% @songs.each do |items| %>
           <div class="songs-list-block">
             <span class="mdl-chip mdl-chip--contact">
               <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('music') %></span>
               <span class="mdl-chip__text song-chip-text">
-                <%= link_to song_path(items) do %>
-                  <%= items.performer %> - <%= items.title %>
-                <% end %>
-                <div>
+                <div class="song-title-a">
+                  <%= link_to song_path(items) do %>
+                    <%= items.performer %> - <%= items.title %>
+                  <% end %>
+                </div>
+                <div class="song-title-component">
                   <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white"><a href=""><%= fa_icon('heart') %></a></span>
                   <span class="mdl-chip__text margin-right-teen"><%= items.count_views %></span>
 
@@ -20,6 +22,11 @@
             </span>
           </div>
       <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-align-center">
+      <%= paginate @songs %>
     </div>
   </div>
 </div>

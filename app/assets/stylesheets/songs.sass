@@ -6,7 +6,13 @@
     width: 100%
   .song-chip-text
     width: 90%
-    div
+    .song-title-a
+      position: absolute
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      width: 70%
+    .song-title-component
       float: right
       a
         color: $white
@@ -23,4 +29,9 @@
 
 .song-body
   width: 100%
-  pre
+
+.pagination > li > a, .pagination > li > span
+  color: $pink
+
+.text-align-center
+  text-align: center
