@@ -6,16 +6,17 @@
         <label class="mdl-textfield__label" for="sample3">Введіть назву пісні</label>
       </div>
     </form>
-      <div class="button-with-between">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    <div class="button-with-between">
+      <%= link_to root_path, type: 'button', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' do %>
           <%= fa_icon 'search' %> Пошук
-        </button>
-        <a href="songs" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      <% end %>
+      <%= link_to songs_path, type: 'button', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' do %>
           <%= fa_icon 'music' %> Всі пісні
-        </a>
-        <a type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      <% end %>
+      <%= link_to new_song_path, type: 'button', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' do %>
           <%= fa_icon 'plus' %> Додати пісню
-        </a>
-      </div>
+      <% end %>
+
+    </div>
   </div>
 </div>

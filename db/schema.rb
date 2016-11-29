@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20161129113102) do
     t.string   "performer"
     t.string   "title"
     t.text     "body"
-    t.integer  "count_views"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "count_views", default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,7 +4,7 @@ class CreateSongs < ActiveRecord::Migration[5.0]
       t.string :performer
       t.string :title
       t.text :body
-      t.integer :count_views
+      t.integer :count_views, default: 0
 
       t.timestamps
     end
