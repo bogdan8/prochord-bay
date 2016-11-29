@@ -1,7 +1,11 @@
 class User < ApplicationRecord
+  after_create :assign_default_role
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
+
+  rolify
+
 
   @@user_password = "prochord#{rand(30..10500)}"
 
@@ -26,5 +30,9 @@ class User < ApplicationRecord
     else
       super
     end
+  end
+
+  def assign_default_role
+    add_role(:user)
   end
 end
