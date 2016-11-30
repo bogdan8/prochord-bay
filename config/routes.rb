@@ -3,5 +3,7 @@ Rails.application.routes.draw do
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'home#index'
   
-  resources :songs
+  resources :songs do
+    get :like, on: :member
+  end
 end

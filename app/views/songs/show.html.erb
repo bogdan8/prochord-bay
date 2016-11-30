@@ -9,8 +9,12 @@
                     <%= @song.performer %> - <%= @song.title %>
                 </div>
             <div class="song-title-component">
-              <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white"><a href=""><%= fa_icon('heart') %></a></span>
-              <span class="mdl-chip__text margin-right-teen"><%= @song.count_views %></span>
+              <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
+                <%= link_to like_song_path(@song) do %>
+                    <%= fa_icon('heart') %>
+                <% end %>
+              </span>
+              <span class="mdl-chip__text margin-right-teen"><%= @song.likes.count %></span>
 
               <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('eye') %></span>
               <span class="mdl-chip__text"><%= @song.count_views %></span>

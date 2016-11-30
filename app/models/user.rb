@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   rolify
 
+  has_many :likes
+  has_many :user, through: :likes
 
   @@user_password = "prochord#{rand(30..10500)}"
 

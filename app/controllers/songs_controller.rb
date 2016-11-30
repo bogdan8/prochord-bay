@@ -32,6 +32,18 @@ class SongsController < ApplicationController
 
   end
 
+  def like
+    @song = Song.find(params[:id])
+    if Like.find_by(user_id: current_user.id, song_id: @song.id)
+      redirect_to @song
+      flash[:error] = 'Вам уже сподобалось'
+    else
+      Like.create(user_id: current_user.id, song_id: @song.id)
+      redirect_to @song
+      flash[:success] = 'Вам сподобалось'
+    end
+  end
+
   private
 
   def song_params
