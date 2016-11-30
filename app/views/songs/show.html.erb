@@ -6,8 +6,8 @@
           <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('music') %></span>
           <span class="mdl-chip__text song-chip-text">
               <div class="song-title-a">
-                    <%= @song.performer %> - <%= @song.title %>
-                </div>
+                <%= @song.performer %> - <%= @song.title %>
+              </div>
             <div class="song-title-component">
               <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
                 <%= link_to like_song_path(@song) do %>
@@ -29,6 +29,11 @@
       <div class="song-body">
         <pre><%= @song.body %></pre>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12 ">
+      <%= social_share_button_tag(@song.title, desc: @song.body) %>
     </div>
   </div>
 </div>
