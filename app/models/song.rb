@@ -5,6 +5,10 @@ class Song < ApplicationRecord
   has_many :likes
   has_many :song, through: :likes
 
+  def self.active
+    where(active: 1)
+  end
+
   def self.title_for(title)
     song = where('title like ? ', "#{title}_%")
     song.order('created_at desc').limit(10).pluck(:title)

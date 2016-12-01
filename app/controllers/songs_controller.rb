@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @songs = Song.order(:created_at).page(params[:page]).per(30)
+    @songs = Song.active.order(:created_at).page(params[:page]).per(30)
   end
 
   def show
@@ -45,7 +45,7 @@ class SongsController < ApplicationController
   end
 
   def search
-    @songs = Song.where('title like ?', "#{params[:title]}%").order(:created_at).page(params[:page]).per(30)
+    @songs = Song.active.where('title like ?', "#{params[:title]}%").order(:created_at).page(params[:page]).per(30)
   end
 
   private
