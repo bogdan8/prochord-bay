@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -41,6 +43,8 @@ gem 'bootstrap-kaminari-views'
 gem 'cancancan'
 gem 'rolify'
 gem 'social-share-button'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
