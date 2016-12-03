@@ -10,7 +10,7 @@ class Song < ApplicationRecord
   end
 
   def self.title_for(title)
-    song = where('title like ? ', "#{title}_%")
+    song = where('lower(title) like ? ', "#{title.downcase}_%")
     song.order('created_at desc').limit(10).pluck(:title)
   end
 

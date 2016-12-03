@@ -45,7 +45,7 @@ class SongsController < ApplicationController
   end
 
   def search
-    @songs = Song.active.where('title like ?', "#{params[:title]}%").order(:created_at).page(params[:page]).per(30)
+    @songs = Song.active.where('lower(title) like ? ', "#{params[:title].downcase}_%").order(:created_at).page(params[:page]).per(30)
   end
 
   private
