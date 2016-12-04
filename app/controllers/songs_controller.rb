@@ -16,7 +16,6 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = Song.new
   end
 
   def create
@@ -28,10 +27,26 @@ class SongsController < ApplicationController
       render :new
     end
     @song.save
-    redirect_to @song
   end
 
   def edit
+  end
+
+  def update
+    if @song.update song_params
+      redirect_to @song, flash: { success: 'Відредаговано' }
+    else
+      flash[:error] = @song.errors.full_messages.to_sentence
+      render :edit
+    end
+  end
+
+  def destroy
+    if @song.destroy
+      redirect_to songs_path, flash: { success: 'Видалено' }
+    else
+      flash[:error] = @song.errors.full_messages.to_sentence
+    end
   end
 
   def like

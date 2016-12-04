@@ -8,6 +8,20 @@
               <div class="song-title-a">
                 <%= @song.performer %> - <%= @song.title %>
               </div>
+            <% if current_user && current_user.has_role?(:admin) %>
+            <div class="song-title-component">
+              <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
+                <%= link_to edit_song_path(@song) do %>
+                    <%= fa_icon('edit') %>
+                <% end %>
+              </span>
+               <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
+                <%= link_to song_path(@song), method: :delete do %>
+                    <%= fa_icon('remove') %>
+                <% end %>
+              </span>
+            </div>
+            <% else %>
             <div class="song-title-component">
               <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
                 <%= link_to like_song_path(@song) do %>
@@ -19,6 +33,7 @@
               <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('eye') %></span>
               <span class="mdl-chip__text"><%= @song.count_views %></span>
             </div>
+            <% end %>
           </span>
         </span>
       </div>
