@@ -2,11 +2,15 @@ class SongsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @songs = Song.active.order(:created_at).page(params[:page]).per(30)
+    search = Song.search do
+      with :active, 1
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 30
+    end
+    @songs = search.results
   end
 
   def show
-    @song = Song.find(params[:id])
     @song.count_views += 1
     @song.save
   end
@@ -18,8 +22,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if verify_recaptcha(model: @song) && @song.save
-      redirect_to @song
-      flash[:success] = 'Успішно додано'
+      redirect_to @song, flash: {success: 'Успішно додано'}
     else
       flash[:error] = @song.errors.full_messages.to_sentence
       render :new
@@ -33,19 +36,22 @@ class SongsController < ApplicationController
   end
 
   def like
-    @song = Song.find(params[:id])
     if Like.find_by(user_id: current_user.id, song_id: @song.id)
-      redirect_to @song
-      flash[:error] = 'Вам уже сподобалось'
+      redirect_to @song, flash: {error: 'Вам уже сподобалось'}
     else
       Like.create(user_id: current_user.id, song_id: @song.id)
-      redirect_to @song
-      flash[:success] = 'Вам сподобалось'
+      redirect_to @song, flash: {success: 'Вам сподобалось'}
     end
   end
 
   def search
-    @songs = Song.active.where('lower(title) like ? ', "#{params[:title].downcase}_%").order(:created_at).page(params[:page]).per(30)
+    search = Song.search do
+      fulltext params[:title].downcase
+      with :active, 1
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 30
+    end
+    @songs = search.results
   end
 
   private
@@ -53,5 +59,4 @@ class SongsController < ApplicationController
   def song_params
     params.require(:song).permit(:performer, :title, :body)
   end
-
 end

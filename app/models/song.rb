@@ -5,8 +5,10 @@ class Song < ApplicationRecord
   has_many :likes
   has_many :song, through: :likes
 
-  def self.active
-    where(active: 1)
+  searchable do
+    text :title.downcase
+    integer :active
+    time :created_at
   end
 
   def self.title_for(title)
