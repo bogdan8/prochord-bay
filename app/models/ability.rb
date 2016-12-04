@@ -14,6 +14,4 @@ class Ability
       cannot [:create, :like], Song
     end
   end
-
-  private
 end

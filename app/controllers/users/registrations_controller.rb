@@ -1,4 +1,4 @@
-  module Users
+module Users
   class RegistrationsController < Devise::RegistrationsController
     before_action :configure_permitted_parameters
     prepend_before_action :check_captcha, only: [:create, :update]
@@ -11,6 +11,7 @@
         respond_with_navigational(resource) { render :new }
       end
     end
+
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])

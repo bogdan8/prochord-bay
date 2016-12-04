@@ -22,7 +22,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if verify_recaptcha(model: @song) && @song.save
-      redirect_to @song, flash: {success: 'Успішно додано'}
+      redirect_to @song, flash: { success: 'Успішно додано' }
     else
       flash[:error] = @song.errors.full_messages.to_sentence
       render :new
@@ -32,15 +32,14 @@ class SongsController < ApplicationController
   end
 
   def edit
-
   end
 
   def like
     if Like.find_by(user_id: current_user.id, song_id: @song.id)
-      redirect_to @song, flash: {error: 'Вам уже сподобалось'}
+      redirect_to @song, flash: { error: 'Вам уже сподобалось' }
     else
       Like.create(user_id: current_user.id, song_id: @song.id)
-      redirect_to @song, flash: {success: 'Вам сподобалось'}
+      redirect_to @song, flash: { success: 'Вам сподобалось' }
     end
   end
 

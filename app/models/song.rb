@@ -19,14 +19,13 @@ class Song < ApplicationRecord
   def self.index_songs
     Song.find_each do |song|
       index_title(song.title)
-      song.title.split.each { |t|  index_title(t)}
+      song.title.split.each { |t| index_title(t) }
     end
   end
 
   def self.index_title(title)
-    where(title: title.downcase).first_or_initialize.tap do |title|
-      title.increment! :popularity
+    where(title: title.downcase).first_or_initialize.tap do |song|
+      song.increment! :popularity
     end
   end
-
 end

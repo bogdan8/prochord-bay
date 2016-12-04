@@ -1,0 +1,40 @@
+AllCops:
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+  Exclude:
+    - '**/bin/spring'
+    - '**/bin/setup'
+    - '**/bin/rake'
+    - '**/bin/rails'
+    - '**/db/schema.rb'
+    - '**/models/user.rb'
+    - '**/app/controllers/donations_controller.rb'
+    - '**/app/helpers/nav_helper.rb'
+    - '**/app/helpers/devise_helper.rb'
+    - '**/app/helpers/initiatives_helper.rb'
+    - '**/db/migrate/20160617062322_rolify_create_roles.rb'
+    - '**/db/migrate/20160617061505_devise_create_users.rb'
+    - '**/config/initializers/devise.rb'
+    - '**/config/initializers/rolify.rb'
+    - '**/config/initializers/kaminari_config.rb'
+    - '**/test/test_helper.rb'
+    - '**/spec/spec_helper.rb'
+    - '**/spec/models/initiative_image_spec.rb'
+    - '**/spec/models/user_spec.rb'
+    - '**/spec/rails_helper.rb'
+    - 'config/**/**'
+    - 'db/**/**'
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/Documentation:
+  Enabled: false

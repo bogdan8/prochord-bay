@@ -45,6 +45,7 @@ gem 'rolify'
 gem 'social-share-button'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'rubocop'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
