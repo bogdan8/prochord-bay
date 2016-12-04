@@ -7,6 +7,7 @@ class Song < ApplicationRecord
 
   searchable do
     text :title.downcase
+    text :performer.downcase
     integer :active
     time :created_at
   end
