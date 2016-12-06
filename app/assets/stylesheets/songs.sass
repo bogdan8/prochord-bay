@@ -61,7 +61,7 @@
   padding: 4px 0
   margin: 2px 0 0 0
   list-style: none
-  background-color: #ffffff
+  background-color: $white
   border-color: #ccc
   border-color: rgba(0, 0, 0, 0.2)
   border-style: solid
@@ -84,8 +84,13 @@
     clear: both
     font-weight: normal
     line-height: 18px
-    color: #555555
+    color: $black
     white-space: nowrap
+    &:hover
+      background-color: blue
+      color: $white
+      white-space: nowrap
+      cursor: pointer
 
     &.ui-state-hover, &.ui-state-active
       color: #ffffff
