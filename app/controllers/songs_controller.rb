@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    search = Song.search(include: :likes) do
+    search = Song.search do
       with :active, 1
       order_by :created_at, :desc
       paginate page: params[:page], per_page: 30
@@ -71,6 +71,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:performer, :title, :body)
+    params.require(:song).permit(:performer, :title, :body, :likes_count)
   end
 end
