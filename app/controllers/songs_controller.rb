@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :slug
 
   def index
     search = Song.search do
@@ -71,6 +71,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:performer, :title, :body, :likes_count)
+    params.require(:song).permit(:performer, :title, :body, :likes_count, :slug)
   end
 end

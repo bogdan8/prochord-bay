@@ -1,4 +1,6 @@
 class Song < ApplicationRecord
+  extend FriendlyId
+
   validates :title, presence: true
   validates :body, presence: true
 
@@ -10,6 +12,12 @@ class Song < ApplicationRecord
     text :performer.downcase
     integer :active
     time :created_at
+  end
+
+  friendly_id :title, use: [:slugged]
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
   end
 
   def self.title_for(title)
