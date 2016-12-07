@@ -59,7 +59,7 @@ class SongsController < ApplicationController
   end
 
   def search
-    search = Song.search(include: :likes) do
+    search = Song.search do
       fulltext params[:title].downcase
       with :active, 1
       order_by :created_at, :desc
