@@ -3,7 +3,9 @@
 ### run project:
 - 1: `rake db:setup`
 - 2: `rake sunspot:solr:start`
-- 3: `rake db:populate`
+- 3: `rake sunspot:solr:reindex`
+- 4: `rake db:populate`
+- 5: `rake db:songs_index`
 
 #### users:
 > - admin: email: `admin@admin.com`, password: `123456`
