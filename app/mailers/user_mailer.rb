@@ -7,5 +7,17 @@ class UserMailer < Devise::Mailer
     @user = user
     @user_password = password
     mail(to: @user.email, subject: 'Ваш тимчасовий пароль.')
+    end
+
+  def send_add_song(user, song)
+    @user = user
+    @song = song
+    mail(to: @user.email, subject: 'Публікація пісні.')
+  end
+
+  def send_add_song_active(user, song)
+    @user = user
+    @song = song
+    mail(to: @user.email, subject: 'Публікація пісні.')
   end
 end

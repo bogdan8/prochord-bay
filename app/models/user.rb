@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :likes
   has_many :user, through: :likes
+  has_many :songs
 
   @@user_password = "prochord#{rand(30..10500)}"
 

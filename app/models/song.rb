@@ -6,6 +6,7 @@ class Song < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :song, through: :likes
+  belongs_to :user
 
   searchable auto_index: true, auto_remove: true do
     text :title.downcase
