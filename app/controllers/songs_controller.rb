@@ -26,7 +26,6 @@ class SongsController < ApplicationController
       flash[:error] = @song.errors.full_messages.to_sentence
       render :new
     end
-    @song.save
   end
 
   def edit
