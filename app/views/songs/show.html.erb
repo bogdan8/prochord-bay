@@ -46,6 +46,11 @@
   </div>
 </div>
 <div class="row">
+  <div class="col-lg-6 col-lg-offset-3 col-xs-12">
+    <p class="song-who-add">Дякуємо <b><%= @song.user.name %></b> за добавлену пісню</p>
+  </div>
+</div>
+<div class="row">
   <div class="col-lg-8 col-lg-offset-2 col-xs-12 ">
     <%= social_share_button_tag(@song.title, desc: @song.body) %>
   </div>

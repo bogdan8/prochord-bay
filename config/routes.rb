@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     get :not_active, on: :collection
     get :do_active, on: :member
   end
+
+  get 'users/all/', to: 'users#index'
+  get 'user/:id/do_admin', to: 'users#do_admin'
+  get 'user/:id/do_user', to: 'users#do_user'
 end

@@ -23,7 +23,7 @@ namespace :db do
           if vari.count != 0
             puts "I'm here!"
           else
-            song = Song.create(performer: title.split(' - ')[0], title: title.split(' - ')[1], body: body, count_views: 0, active: 1)
+            song = Song.create(performer: title.split(' - ')[0], title: title.split(' - ')[1], body: body, count_views: 0, active: 1, user_id: 1)
             song.index!
           end
         end

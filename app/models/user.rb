@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :user, through: :likes
   has_many :songs
 
+  validates :name, presence: true
+
   @@user_password = "prochord#{rand(30..10500)}"
 
   def self.from_omniauth(auth)

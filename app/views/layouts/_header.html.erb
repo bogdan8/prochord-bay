@@ -27,6 +27,11 @@
                   <%= fa_icon 'music' %> Нові пісні
               <% end %>
             </li>
+            <li>
+              <%= link_to users_all_path, class: 'mdl-menu__item' do %>
+                  <%= fa_icon 'users' %> Користувачі
+              <% end %>
+            </li>
         <% end %>
         <li>
           <%= link_to edit_user_registration_path, class: 'mdl-menu__item' do %>
