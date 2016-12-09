@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :songs do
     get :like, on: :member
     get :search, on: :collection
+    get :not_active, on: :collection
+    get :do_active, on: :member
   end
 end

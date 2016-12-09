@@ -67,6 +67,20 @@ class SongsController < ApplicationController
     @songs = search.results
   end
 
+  def not_active
+    search = Song.search do
+      with :active, 0
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 30
+    end
+    @songs = search.results
+  end
+
+  def do_active
+    @song.update(active: 1)
+    redirect_to not_active_songs_path, flash: { success: 'Активовано' }
+  end
+
   private
 
   def song_params
