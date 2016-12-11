@@ -1,27 +1,39 @@
 <div class="header-nav">
   <button id="demo-menu-lower-right"
           class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored header-nav-button">
-    <i class="material-icons">more_vert</i>
+    <%= fa_icon('ellipsis-v') %>
   </button>
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
       for="demo-menu-lower-right">
-    <li class="<%= yield :li_home %>">
+    <li>
       <%= link_to root_path, class: 'mdl-menu__item' do %>
           <%= fa_icon 'home' %> Головна
       <% end %>
     </li>
-    <li class="<%= yield :li_all_songs %>">
+    <li>
       <%= link_to songs_path, class: 'mdl-menu__item' do %>
           <%= fa_icon 'music' %> Всі пісні
       <% end %>
     </li>
-    <li class="mdl-menu__item--full-bleed-divider <%= yield :li_add_song %>">
+    <li class="mdl-menu__item--full-bleed-divider">
       <%= link_to new_song_path, class: 'mdl-menu__item' do %>
           <%= fa_icon 'plus' %> Додати пісню
       <% end %>
     </li>
     <% if user_signed_in? %>
-        <li class="<%= yield :li_edit_user %>">
+        <% if current_user.has_role? :admin %>
+            <li>
+              <%= link_to not_active_songs_path, class: 'mdl-menu__item' do %>
+                  <%= fa_icon 'music' %> Нові пісні
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_all_path, class: 'mdl-menu__item' do %>
+                  <%= fa_icon 'users' %> Користувачі
+              <% end %>
+            </li>
+        <% end %>
+        <li>
           <%= link_to edit_user_registration_path, class: 'mdl-menu__item' do %>
               <%= fa_icon 'pencil-square-o' %> Редагувати профіл
           <% end %>
@@ -32,12 +44,12 @@
           <% end %>
         </li>
     <% else %>
-        <li class="<%= yield :li_sign_in %>">
+        <li>
           <%= link_to new_user_session_path, class: 'mdl-menu__item' do %>
               <%= fa_icon 'sign-in' %> Вхід
           <% end %>
         </li>
-        <li class="<%= yield :li_sign_up %>">
+        <li>
           <%= link_to new_user_registration_path, class: 'mdl-menu__item' do %>
               <%= fa_icon 'registered' %> Реєстрація
           <% end %>
@@ -46,17 +58,15 @@
   </ul>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <% flash.each do |name, msg| %>
-          <div class="pad margin no-print">
-            <%= content_tag :div, class: "alert alert-#{ name == 'error' ? 'danger' : 'success' } alert-dismissable", role: 'alert' do %>
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                <%= msg %>
-            <% end %>
-          </div>
-      <% end %>
-    </div>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <% flash.each do |name, msg| %>
+        <div class="pad margin no-print">
+          <%= content_tag :div, class: "alert alert-#{ name == 'error' ? 'danger' : 'success' } alert-dismissable", role: 'alert' do %>
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              <%= msg %>
+          <% end %>
+        </div>
+    <% end %>
   </div>
 </div>

@@ -1,56 +1,57 @@
-<%= provide :site_title, "#{@song.title} |" %>
-<%= provide :li_all_songs, 'active' %>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
-      <div class="songs-list-block">
-        <span class="mdl-chip mdl-chip--contact">
-          <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('music') %></span>
-          <span class="mdl-chip__text song-chip-text">
-              <div class="song-title-a">
-                <%= @song.performer %> - <%= @song.title %>
-              </div>
-            <% if current_user && current_user.has_role?(:admin) %>
-            <div class="song-title-component">
-              <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
-                <%= link_to edit_song_path(@song) do %>
-                    <%= fa_icon('edit') %>
-                <% end %>
-              </span>
-               <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
-                <%= link_to song_path(@song), method: :delete do %>
-                    <%= fa_icon('remove') %>
-                <% end %>
-              </span>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+    <div class="songs-list-block">
+      <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('music') %></span>
+        <span class="mdl-chip__text song-chip-text">
+            <div class="song-title-a">
+              <%= truncate(@song.performer, length: 25) %> - <%= truncate(@song.title, length: 25) %>
             </div>
-            <% else %>
-            <div class="song-title-component">
-              <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
-                <%= link_to like_song_path(@song) do %>
-                    <%= fa_icon('heart') %>
-                <% end %>
-              </span>
-              <span class="mdl-chip__text margin-right-teen"><%= @song.likes.size %></span>
+          <% if current_user && current_user.has_role?(:admin) %>
+          <div class="song-title-component">
+            <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
+              <%= link_to edit_song_path(@song) do %>
+                  <%= fa_icon('edit') %>
+              <% end %>
+            </span>
+             <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
+              <%= link_to song_path(@song), method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <%= fa_icon('remove') %>
+              <% end %>
+            </span>
+          </div>
+          <% else %>
+          <div class="song-title-component">
+            <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
+              <%= link_to like_song_path(@song) do %>
+                  <%= fa_icon('heart') %>
+              <% end %>
+            </span>
+            <span class="mdl-chip__text margin-right-teen"><%= @song.likes.size %></span>
 
-              <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('eye') %></span>
-              <span class="mdl-chip__text"><%= @song.count_views %></span>
-            </div>
-            <% end %>
-          </span>
+            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('eye') %></span>
+            <span class="mdl-chip__text"><%= @song.count_views %></span>
+          </div>
+          <% end %>
         </span>
-      </div>
+      </span>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-3 col-xs-12">
-      <div class="song-body">
-        <pre><%= @song.body %></pre>
-      </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-3 col-xs-12">
+    <div class="song-body">
+      <pre><%= @song.body %></pre>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-xs-12 ">
-      <%= social_share_button_tag(@song.title, desc: @song.body) %>
-    </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 col-xs-12">
+    <p class="song-who-add">Дякуємо <b><%= @song.user.name %></b> за добавлену пісню</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-xs-12 ">
+    <%= social_share_button_tag(@song.title, desc: @song.body) %>
   </div>
 </div>
