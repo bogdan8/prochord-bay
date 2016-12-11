@@ -7,7 +7,7 @@
         <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= fa_icon('music') %></span>
         <span class="mdl-chip__text song-chip-text">
             <div class="song-title-a">
-              <%= truncate(@song.performer, length: 25) %> - <%= truncate(@song.title, length: 25) %>
+              <%= @song.performer %> - <%= @song.title %>
             </div>
           <% if current_user && current_user.has_role?(:admin) %>
           <div class="song-title-component">
@@ -17,7 +17,7 @@
               <% end %>
             </span>
              <span class="mdl-chip__contact mdl-color--teal-pink mdl-color-text--white">
-              <%= link_to song_path(@song), method: :delete, data: {confirm: "Are you sure?"} do %>
+              <%= link_to song_path(@song), method: :delete, data: { confirm: 'Are you sure?' } do %>
                   <%= fa_icon('remove') %>
               <% end %>
             </span>
