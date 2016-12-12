@@ -22,7 +22,7 @@ class Song < ApplicationRecord
   end
 
   def self.title_for(title)
-    song = where('lower(title) like ? ', "#{title.downcase}_%")
+    song = where('lower(title) like ? ', "#{title.downcase}_%").where(active: 1)
     song.order('created_at desc').limit(10).pluck(:title)
   end
 
@@ -34,7 +34,7 @@ class Song < ApplicationRecord
   end
 
   def self.index_title(title)
-    where(title: title.downcase).first_or_initialize.tap do |song|
+    where(title: title.downcase).where(active: 1).first_or_initialize.tap do |song|
       song.increment! :popularity
     end
   end

@@ -43,7 +43,7 @@
 <div class="row">
   <div class="col-lg-8 col-lg-offset-3 col-xs-12">
     <div class="song-body">
-      <pre><%= @song.body %></pre>
+      <pre><%= @song.body.html_safe %></pre>
     </div>
   </div>
 </div>
@@ -54,6 +54,6 @@
 </div>
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2 col-xs-12 ">
-    <%= social_share_button_tag(@song.title, desc: @song.body) %>
+    <%== social_share_button_tag(@song.title, desc: @song.body.to_s.strip.gsub!("'", "\"")) %>
   </div>
 </div>

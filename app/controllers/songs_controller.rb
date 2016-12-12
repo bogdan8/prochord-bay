@@ -11,12 +11,10 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song.count_views += 1
-    @song.save
+    @song.atomic_update count_views: @song.count_views += 1
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @song = Song.new(song_params)
@@ -29,11 +27,10 @@ class SongsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if @song.update song_params
+    if verify_recaptcha(model: @song) && @song.update(song_params)
       redirect_to @song, flash: { success: 'Відредаговано' }
     else
       flash[:error] = @song.errors.full_messages.to_sentence
