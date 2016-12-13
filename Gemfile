@@ -32,7 +32,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'sunspot_solr'
 gem 'rubocop'
 gem 'unicode'
-
+gem 'sidekiq'
+gem 'sinatra', github: 'sinatra/sinatra'
 group :development, :test do
   gem 'byebug', platform: :mri
 end

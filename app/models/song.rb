@@ -8,7 +8,7 @@ class Song < ApplicationRecord
   has_many :song, through: :likes
   belongs_to :user
 
-  searchable auto_index: true, auto_remove: true do
+  searchable auto_index: false, auto_remove: false do
     text :title.downcase
     text :performer.downcase
     integer :active

@@ -32,6 +32,11 @@
                   <%= fa_icon 'users' %> Користувачі
               <% end %>
             </li>
+            <li class="<%= yield :li_all_users %>">
+              <%= link_to '/sidekiq', class: 'mdl-menu__item' do %>
+                  <%= fa_icon 'area-chart' %> Процеси
+              <% end %>
+            </li>
         <% end %>
         <li class="<%= yield :li_edit_user %>">
           <%= link_to edit_user_registration_path, class: 'mdl-menu__item' do %>
