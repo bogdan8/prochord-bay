@@ -10,6 +10,13 @@ ru:
           one: "Показано <b>%{count}</b> %{entry_name}"
           other: "Показаны <b>все %{count}</b> %{entry_name}"
   views:
+    pages:
+      index: 'Главная'
+    home:
+      search: 'Поиск'
+      search_input: 'Введите название песни'
+      all_songs: 'Все песни'
+      add_song: 'Добавить песню'
     pagination:
       first: "&laquo; Первая"
       last: "Последняя &raquo;"

@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   helpers:
     page_entries_info:
@@ -30,6 +9,13 @@ en:
           other: Displaying <b>all %{count}</b> %{entry_name}
           zero: No %{entry_name} found
   views:
+    pages:
+      index: 'Home'
+    home:
+      search: 'Search'
+      search_input: 'Enter the name of the song'
+      all_songs: 'All songs'
+      add_song: 'Add song'
     pagination:
       first: "&laquo; First"
       last: Last &raquo;

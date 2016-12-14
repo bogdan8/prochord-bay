@@ -1,3 +1,3 @@
-<%= provide :site_title, 'Всі пісні |' %>
+<%= provide :site_title, t('views.home.all_songs') + '|' %>
 <%= provide :li_all_songs, 'active' %>
 <%= render 'index', locals: {songs: @songs} %>

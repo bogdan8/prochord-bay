@@ -11,12 +11,81 @@ uk:
           other: "Відображені <b>всі %{count}</b> %{entry_name}"
           zero: "Жодного %{entry_name}"
   views:
+    pages:
+      index: 'Головна'
+      new_songs: 'Нові пісні'
+      users: 'Користувачі'
+      processes: 'Процеси'
+      edit_profile: 'Редагувати профіл'
+      edit_song: 'Редагувати пісню'
+      sign_out: 'Вихід'
+      sign_in: 'Вхід'
+      registration: 'Реєстрація'
+      ukrain: 'Українська'
+      russian: 'Російська'
+      english: 'Англійська'
+    song:
+      performer: 'Виконавець:'
+      title: 'Назва:'
+      body: 'Текст:'
+      delete:
+        confirm: 'Ви впевнені?'
+      thanks: "Дякуємо <b>%{parameter}</b> за добавлену пісню"
+    mailer:
+      hello: "Привіт: <b>%{parameter} </b>"
+      song_successful: 'Вашу пісню добавлено, очікуйте підтвердження її адміністратором сайту'
+      song_successful_add: 'Вашу пісню успішно опубліковано на сайті'
+      preview: 'Щоб переглянути її зайдіть на'
+      thanks: 'Дякуєм за розуміння!'
+      welcome: 'Ласкаво просимо'
+      send_confirm: 'Ви можете підтвердити свою адресу електронної пошти облікового запису по посиланню нижче:'
+      link_confirm: 'Підтвердити мій акаунт!'
+      password_change_body: "Ми зв'язатися з вами, щоб повідомити вас, що ваш пароль був змінений!"
+      reset_password_body: 'Хтось запитав посилання, щоб змінити пароль. Ви можете зробити це за посиланням нижче.'
+      reset_password_link: 'Змінити пароль'
+      reset_password_warning: 'Якщо ви не надсилали цього, ігноруйте це повідомлення.'
+      reset_password_warning_two: 'Ваш пароль не зміниться до тих пір, поки ви неперейдете за посиланням вище.'
+      unlock_instruction_one: 'Ваш аккаунт був заблокований через надмірну кількість невдалих спроб входу в систему.'
+      unlock_instruction_two: 'Натисніть на посилання нижче, щоб розблокувати свій аккаунт:'
+      unlock_instruction_button: 'Розблокувати акаунт:'
+    home:
+      search: 'Пошук'
+      search_input: 'Введіть назву пісні'
+      search_results: 'Результат пошуку'
+      all_songs: 'Всі пісні'
+      add_song: 'Додати пісню'
     pagination:
       first: "&laquo; Перша"
       last: "Остання &raquo;"
       next: "Наступна &rsaquo;"
       previous: "&lsaquo; Попередня"
       truncate: "&hellip;"
+    devise:
+      confirmation: 'Підтвердження пароля'
+      link:
+        forgot_password: 'Забули свій пароль?'
+        recive_confirmation: 'Не отримали лист з підтвердженням?'
+        recive_unlock: 'Не отримали лист з розблокуванням?'
+      change_password: 'Змінити пароль'
+      length_password_min: 'символів мінімум'
+      password: 'Пароль'
+      password_confirmation: 'Підтвердіть пароль'
+      password_confirmation_new: 'Підтвердити новий пароль'
+      password_new: 'Забули свій пароль?'
+      password_new_button: 'Надіслати інструкцію як змінити пароль'
+      name: "І'мя"
+      registration_button: 'Зареєструватись'
+      current_password: 'Теперішній пароль'
+      current_password_body: 'нам потрібен поточний пароль для підтвердження змін'
+      password_edit_button: 'Обновити'
+      password_live_blank: 'залиште порожнім, якщо ви не хочете, щоб змінити його'
+      current_waiting: 'В даний час очікує підтвердження для'
+      remove_password: 'Видалити мій акаунт'
+      remember_me: 'Запамятати мене'
+      resend_instruction: 'Повторна розблокувати інструкції'
+
+  controllers:
+
   recaptcha:
     errors:
       verification_failed: 'Ви не пройшли перевірку'

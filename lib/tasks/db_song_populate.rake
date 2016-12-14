@@ -4,8 +4,8 @@ namespace :db do
   require 'open-uri'
   desc 'Populate the table Song with songs'
   task populate: :environment do
-    10.upto(41).each do |number|
-      website = "http://hm6.ru/nashi/page/#{number}/"
+    1.upto(3).each do |number|
+      website = "http://hm6.ru/zarub/page/#{number}/"
       page = Nokogiri::HTML(open(website))
       page.css('td.b-listing-singers__item__name_m a').each do |item|
         website_first =  'http://hm6.ru' + item['href']
@@ -29,5 +29,7 @@ namespace :db do
         end
       end
     end
+    Song.index_songs
+    puts 'Done)'
   end
 end

@@ -1,3 +1,3 @@
-<%= provide :site_title, 'Результат пошуку |' %>
+<%= provide :site_title, t('views.home.search_results') + '|' %>
 <%= provide :li_all_songs, 'active' %>
 <%= render 'index', locals: {songs: @songs} %>

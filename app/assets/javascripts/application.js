@@ -16,7 +16,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require material
-//= require song
+//= require song.js.coffee.erb
 //= require social-share-button
 //= require turbolinks
 //= require_tree .

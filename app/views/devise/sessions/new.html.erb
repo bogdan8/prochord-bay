@@ -1,4 +1,4 @@
-<%= provide :site_title, 'Вхід |' %>
+<%= provide :site_title, t('views.pages.sign_in') + '|' %>
 <%= provide :li_sign_in, 'active' %>
 <div class="row">
   <div class="col-lg-5 col-lg-offset-4 col-md-5 col-md-offset-3 col-sm-10 col-xs-12">
@@ -6,7 +6,7 @@
     <div class="demo-card-square mdl-card mdl-shadow--2dp" id="devise-cart">
       <div class="mdl-card__title mdl-card--expand">
         <%= image_tag('music/1', class: 'devise-image-cart') %>
-        <h2 class="mdl-card__title-text">Вхід</h2>
+        <h2 class="mdl-card__title-text"><%= t('views.pages.sign_in') %></h2>
       </div>
       <div class="mdl-card__actions mdl-card--border button-with-between">
         <a type="button" href="/users/auth/facebook" class="btn-fb mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color: #4264aa">
@@ -33,18 +33,18 @@
               </div>
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <%= f.password_field :password, class: 'mdl-textfield__input', autofocus: true, autocomplete: 'off' %>
-                <%= f.label :password, class: 'mdl-textfield__label' %>
+                <%= f.label t('views.devise.password'), class: 'mdl-textfield__label' %>
               </div>
 
               <% if devise_mapping.rememberable? -%>
                   <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
                     <%= f.check_box :remember_me, class: 'mdl-checkbox__input', id: 'checkbox-2' %>
-                    <%= f.label :remember_me, class: 'mdl-checkbox__label' %>
+                    <%= f.label t('views.devise.remember_me'), class: 'mdl-checkbox__label' %>
                   </label>
               <% end -%>
               <br>
               <br>
-              <%= f.submit 'Ввійти', id: 'devise-button-submit', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+              <%= f.submit t('views.pages.sign_in'), id: 'devise-button-submit', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
               <%= spinner_css %>
             </div>
             <%= render 'devise/shared/links' %>

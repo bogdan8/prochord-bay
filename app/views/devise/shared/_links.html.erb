@@ -2,35 +2,35 @@
   <%- if controller_name != 'sessions' %>
       <li class="mdl-list__item">
         <span class="mdl-list__item-primary-content">
-          <%= link_to "Log in", new_session_path(resource_name) %>
+          <%= link_to t('views.pages.sign_in'), new_session_path(resource_name) %>
          </span>
       </li>
   <% end -%>
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
       <li class="mdl-list__item">
         <span class="mdl-list__item-primary-content">
-          <%= link_to "Sign up", new_registration_path(resource_name) %>
+          <%= link_to t('views.pages.registration'), new_registration_path(resource_name) %>
         </span>
       </li>
   <% end -%>
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <li class="mdl-list__item">
         <span class="mdl-list__item-primary-content">
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+          <%= link_to t('views.devise.link.forgot_password'), new_password_path(resource_name) %>
         </span>
       </li>
   <% end -%>
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
       <li class="mdl-list__item">
         <span class="mdl-list__item-primary-content">
-          <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+          <%= link_to t('views.devise.link.recive_confirmation'), new_confirmation_path(resource_name) %>
         </span>
       </li>
   <% end -%>
   <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
       <li class="mdl-list__item">
         <span class="mdl-list__item-primary-content">
-          <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
+          <%= link_to t('views.devise.link.recive_unlock'), new_unlock_path(resource_name) %>
         </span>
       </li>
   <% end -%>
