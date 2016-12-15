@@ -11,7 +11,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    SongCountWorker.perform_async(@song.id)
+    @song.update_columns(count_views: @song.count_views + 1)
   end
 
   def new; end
@@ -19,7 +19,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if verify_recaptcha(model: @song) && @song.save
-      SongIndexWorker.perform_async(@song.id)
+      UserMailer.send_add_song(@song.user, @song).deliver_now!
       redirect_to @song, flash: { success: 'Успішно додано' }
     else
       flash[:error] = @song.errors.full_messages.to_sentence
@@ -75,7 +75,8 @@ class SongsController < ApplicationController
   end
 
   def do_active
-    SongActiveWorker.perform_async(@song.id)
+    @song.update(active: 1)
+    UserMailer.send_add_song_active(@song.user, @song).deliver_now!
     redirect_to not_active_songs_path, flash: { success: 'Активовано' }
   end
 

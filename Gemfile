@@ -46,6 +46,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rack-mini-profiler'
   gem 'rubocop'
+  gem 'progress_bar'
 end
 
 group :development do

@@ -1,4 +1,4 @@
 <p><%== t('views.mailer.hello', parameter: @user.name) %></p>
 <p><%= t('views.mailer.song_successful_add') %></p>
 <p><%= t('views.mailer.preview') %></p>
-<%= link_to @song.title, song_url(@song) %>
+<%= link_to @song.title, "/#{I18n.locale}/songs/#{@song.slug}" %>
