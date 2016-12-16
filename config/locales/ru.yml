@@ -12,17 +12,76 @@ ru:
   views:
     pages:
       index: 'Главная'
+      new_songs: 'Новые песни'
+      users: 'Пользователи'
+      processes: 'Процессы'
+      edit_profile: 'Редактировать профиль'
+      edit_song: 'Редактировать песню'
+      sign_out: 'Выход'
+      sign_in: 'Вход'
+      registration: 'Регистрация'
+      ukrain: 'Украинский'
+      russian: 'Русский'
+      english: 'Английский'
+    song:
+      performer: 'Исполнитель:'
+      title: 'Название:'
+      body: 'Текст:'
+      delete:
+        confirm: 'Вы уверены?'
+      thanks: "Спасибо <b>%{parameter}</b> за добавленную песню"
+    mailer:
+      hello: "Здравствуйте: <b>%{parameter} </b>"
+      song_successful: 'Вашу песню добавлено, ожидайте подтверждения ее администратором сайта'
+      song_successful_add: 'Вашу песню успешно опубликован на сайте'
+      preview: 'Чтобы просмотреть зайдите на'
+      thanks: 'Спасибо за понимание!'
+      welcome: 'Добро пожаловать'
+      send_confirm: 'Вы можете подтвердить свой адрес электронной почты аккаунта по ссылке ниже:'
+      link_confirm: 'Подтвердить мой аккаунт!'
+      password_change_body: "Мы связаться с вами, чтобы сообщить вам, что ваш пароль был изменен!"
+      reset_password_body: 'Кто-то спросил ссылку, чтобы изменить пароль. Вы можете сделать это по ссылке ниже.'
+      reset_password_link: 'Изменить пароль'
+      reset_password_warning: 'Если вы не прислали этого, игнорируйте это сообщение.'
+      reset_password_warning_two: 'Пароль не изменяется до тех пор, пока вы неперейдете по ссылке выше.'
+      unlock_instruction_one: 'Ваш аккаунт был заблокирован из-за чрезмерного количества неудачных попыток входа в систему.'
+      unlock_instruction_two: 'Нажмите на ссылку ниже, чтобы разблокировать свой аккаунт:'
+      unlock_instruction_button: 'Разблокировать аккаунт:'
     home:
       search: 'Поиск'
       search_input: 'Введите название песни'
+      search_results: 'Результат поиска'
       all_songs: 'Все песни'
       add_song: 'Добавить песню'
     pagination:
-      first: "&laquo; Первая"
+      first: "&laquo; первая"
       last: "Последняя &raquo;"
       next: "Следующая &rsaquo;"
       previous: "&lsaquo; Предыдущая"
       truncate: "&hellip;"
+    devise:
+      confirmation: 'Подтверждение пароля'
+      link:
+        forgot_password: 'Забыли пароль?'
+        recive_confirmation: 'Не получили письмо с подтверждением?'
+        recive_unlock: 'Не получили письмо с разблокировкой?'
+      change_password: 'Изменить пароль'
+      length_password_min: 'символов минимум'
+      password: 'Пароль'
+      password_confirmation: 'Подтвердите пароль'
+      password_confirmation_new: 'Подтвердить новый пароль'
+      password_new: 'Забыли пароль?'
+      password_new_button: 'Отправить инструкцию как изменить пароль'
+      name: "Имя"
+      registration_button: 'Регистрация'
+      current_password: 'Нынешний пароль'
+      current_password_body: 'Нам нужен текущий пароль для подтверждения изменений'
+      password_edit_button: 'обновить'
+      password_live_blank: 'оставьте пустым, если вы не хотите, чтобы изменить его'
+      current_waiting: 'В настоящее время ожидает подтверждения для'
+      remove_password: 'Удалить мой аккаунт'
+      remember_me: 'Запомнить меня'
+      resend_instruction: 'Повторная разблокировать инструкции'
   recaptcha:
     errors:
       verification_failed: 'Вы не прошли проверку'

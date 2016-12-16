@@ -11,14 +11,73 @@ en:
   views:
     pages:
       index: 'Home'
+      new_songs: 'New songs'
+      users: 'Users'
+      processes: 'Processes'
+      edit_profile: 'Edit profile'
+      edit_song: 'Edit song'
+      sign_out: 'Entrance'
+      sign_in: 'Exit'
+      registration: 'Registration'
+      ukrain: 'Ukrainian'
+      russian: 'Russian'
+      english: 'English'
+    song:
+      performer: 'Performer:'
+      title: 'Name:'
+      body: 'Text:'
+      delete:
+        confirm: 'Are you sure?'
+      thanks: "Thanks <b>%{parameter}</b> by-added song"
+    mailer:
+      hello: "Hello: <b>%{parameter} </b>"
+      song_successful: 'Your Song added, pending its site administrator'
+      song_successful_add: 'Your song successfully posted online'
+      preview: 'To view it visit'
+      thanks: 'Thank you for understanding!'
+      welcome: 'Welcome'
+      send_confirm: 'You can confirm your e-mail account the link below:'
+      link_confirm: 'Verify my account!'
+      password_change_body: "We will contact you to inform you that your password has been changed!"
+      reset_password_body: 'Someone asked a link to change your password. You can do it from the link below.'
+      reset_password_link: 'Change password'
+      reset_password_warning: 'If you do not send it, ignore this message.'
+      reset_password_warning_two: 'Your password will not change as long as you do not click the link above.'
+      unlock_instruction_one: 'Your account has been blocked due to excessive failed logon.'
+      unlock_instruction_two: 'Click the link below to unlock your account:'
+      unlock_instruction_button: 'Unlock account:'
     home:
       search: 'Search'
       search_input: 'Enter the name of the song'
+      search_results: 'Search result'
       all_songs: 'All songs'
-      add_song: 'Add song'
+      add_song: 'Add a song'
     pagination:
       first: "&laquo; First"
-      last: Last &raquo;
-      next: Next &rsaquo;
-      previous: "&lsaquo; Prev"
+      last: "Last &raquo;"
+      next: "Next &rsaquo;"
+      previous: "&lsaquo; Previous"
       truncate: "&hellip;"
+    devise:
+      confirmation: 'Confirm password'
+      link:
+        forgot_password: 'Forgot your password?'
+        recive_confirmation: 'Did not get a confirmation?'
+        recive_unlock: 'Not received a letter from unlocking?'
+      change_password: 'Change password'
+      length_password_min: 'character minimum'
+      password: 'Password'
+      password_confirmation: 'Confirm password'
+      password_confirmation_new: 'Confirm new password'
+      password_new: 'Forgot your password??'
+      password_new_button: 'Send the user to change the password'
+      name: "Name"
+      registration_button: 'Register'
+      current_password: 'The current password'
+      current_password_body: 'we need your current password to confirm changes'
+      password_edit_button: 'Update'
+      password_live_blank: 'leave blank if you do not want to change it'
+      current_waiting: 'Currently waiting for confirmation'
+      remove_password: 'Delete my account'
+      remember_me: "Remember me"
+      resend_instruction: 'Re unlock instructions'
