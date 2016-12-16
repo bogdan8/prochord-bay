@@ -1,4 +1,31 @@
 uk:
+  activerecord:
+    attributes:
+      song:
+        title: 'Назва:'
+        body: 'Текст:'
+      user:
+        current_password: "Поточний пароль"
+        password_confirmation: "Повторіть пароль"
+        password: "Пароль:"
+        name: "Ім'я"
+    errors:
+      messages:
+        record_invalid: 'Виникли помилки: %{errors}'
+      models:
+        song:
+          attributes:
+            title:
+              blank: "не може бути порожня"
+            body:
+              blank: "Не може бути порожнім"
+        user:
+          attributes:
+            name:
+              blank: "Не може бути порожнім"
+            email:
+              taken: 'Не правильний формат електронної пошти'
+
   helpers:
     page_entries_info:
       more_pages:
@@ -85,6 +112,25 @@ uk:
       resend_instruction: 'Повторна розблокувати інструкції'
 
   controllers:
+    user:
+      success_sign_in: 'Ви успішно увійшли!'
+      change_to_admin: 'Змінено на адміна'
+      change_to_user: 'Змінено на користувача'
+    songs:
+      success_create: 'Успішно додано'
+      success_update: 'Відредаговано'
+      success_delete: 'Видалено'
+      like_error: 'Вам уже сподобалось'
+      like_success: 'Вам сподобалось'
+      active: 'Активовано'
+
+  unauthorized:
+    default: "За замовчуванням текст повідомлення про помилку."
+    manage:
+      all: "Ви не маєте доступу до цієї сторінки."
+      user: "Не дозволено керувати іншими обліковими записами користувачів."
+    update:
+      project: "Не дозволено оновлювати цей проект."
 
   recaptcha:
     errors:

@@ -1,4 +1,31 @@
 ru:
+  activerecord:
+    attributes:
+      song:
+        title: 'Название:'
+        body: 'Текст:'
+      user:
+        current_password: "Текущий пароль"
+        password_confirmation: "Повторите пароль"
+        password: "Пароль:"
+        name: "Имя"
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+      models:
+        song:
+          attributes:
+            title:
+              blank: "не может быть пуста"
+            body:
+              blank: "не может быть пуста"
+        user:
+          attributes:
+            name:
+              blank: "не может быть пуста"
+            email:
+              taken: 'Неправильный формат электронной почты'
+
   helpers:
     page_entries_info:
       more_pages:
@@ -82,6 +109,28 @@ ru:
       remove_password: 'Удалить мой аккаунт'
       remember_me: 'Запомнить меня'
       resend_instruction: 'Повторная разблокировать инструкции'
+
+  controllers:
+    user:
+      success_sign_in: 'Вы успешно вошли!'
+      change_to_admin: 'Изменено на админа'
+      change_to_user: 'Изменено на пользователя'
+    songs:
+      success_create: 'Успешно добавлен'
+      success_update: 'Отредактировано'
+      success_delete: 'Удален'
+      like_error: 'Вам уже понравилось'
+      like_success: 'Вам понравилось'
+      active: 'Включен'
+
+  unauthorized:
+    default: "По умолчанию текст сообщения об ошибке."
+    manage:
+      all: "Вы не имеете доступа к этой странице."
+      user: "Запрещено управлять другими учетными записями пользователей."
+    update:
+      project: "Запрещено обновлять этот проект."
+
   recaptcha:
     errors:
       verification_failed: 'Вы не прошли проверку'

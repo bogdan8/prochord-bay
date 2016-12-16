@@ -33,7 +33,7 @@
                   <%= fa_icon 'users' %> <%= t('views.pages.users') %>
               <% end %>
             </li>
-            <li class="<%= yield :li_all_users %>">
+            <li>
               <%= link_to '/sidekiq', class: 'mdl-menu__item' do %>
                   <%= fa_icon 'area-chart' %> <%= t('views.pages.processes') %>
               <% end %>

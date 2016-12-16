@@ -44,9 +44,9 @@ gem 'rolify'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'progress_bar'
   gem 'rack-mini-profiler'
   gem 'rubocop'
-  gem 'progress_bar'
 end
 
 group :development do

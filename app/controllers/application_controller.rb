@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :set_locale
+  before_action :set_locale
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-  def default_url_options(options ={})
+  def default_url_options(*)
     { locale: I18n.locale }
   end
 end

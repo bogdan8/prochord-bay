@@ -17,7 +17,7 @@ en:
       edit_profile: 'Edit profile'
       edit_song: 'Edit song'
       sign_out: 'Entrance'
-      sign_in: 'Exit'
+      sign_in: 'Sign in'
       registration: 'Registration'
       ukrain: 'Ukrainian'
       russian: 'Russian'
@@ -81,3 +81,16 @@ en:
       remove_password: 'Delete my account'
       remember_me: "Remember me"
       resend_instruction: 'Re unlock instructions'
+
+  controllers:
+    user:
+      success_sign_in: 'You have successfully signed!'
+      change_to_admin: 'Changed to admin'
+      change_to_user: 'Changed to user'
+    songs:
+      success_create: 'Successfully added'
+      success_update: 'Edited'
+      success_delete: 'Deleted'
+      like_error: 'You already liked'
+      like_success: 'You like'
+      active: 'Activated'

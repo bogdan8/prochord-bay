@@ -19,11 +19,11 @@
             <td> <%= user.email %> </td>
             <td>
               <% if user.has_role? :admin %>
-                  <%= link_to 'user', "/user/#{user.id}/do_user", style: 'color: red' %>
+                  <%= link_to 'user', "/#{I18n.locale}/user/#{user.id}/do_user", style: 'color: red' %>
                   /admin
               <% else %>
                   user/
-                  <%= link_to 'admin', "/user/#{user.id}/do_admin", style: 'color: green' %>
+                  <%= link_to 'admin', "/#{I18n.locale}/user/#{user.id}/do_admin", style: 'color: green' %>
               <% end %>
             </td>
           </tr>

@@ -12,16 +12,16 @@
         <%= form_for @song do |f| %>
             <div id="devise-form">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <%= f.text_field :performer, class: 'mdl-textfield__input', autofocus: true, minlength: 3 %>
+                <%= f.text_field :performer, class: 'mdl-textfield__input', autofocus: true, required: true, minlength: 3 %>
                 <%= f.label t('views.song.performer'), class: 'mdl-textfield__label' %>
               </div>
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <%= f.text_field :title, class: 'mdl-textfield__input', autofocus: true, minlength: 3 %>
+                <%= f.text_field :title, class: 'mdl-textfield__input', autofocus: true, required: true, minlength: 3 %>
                 <%= f.label t('views.song.title'), class: 'mdl-textfield__label' %>
               </div>
 
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <%= f.text_area :body, class: 'mdl-textfield__input', rows: 10, cols: 45, minlength: 15 %>
+                <%= f.text_area :body, class: 'mdl-textfield__input', rows: 10, cols: 45, required: true, minlength: 15 %>
                 <%= f.label t('views.song.body'), class: 'mdl-textfield__label' %>
               </div>
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
