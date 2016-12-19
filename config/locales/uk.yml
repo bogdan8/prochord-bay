@@ -75,6 +75,9 @@ uk:
       unlock_instruction_one: 'Ваш аккаунт був заблокований через надмірну кількість невдалих спроб входу в систему.'
       unlock_instruction_two: 'Натисніть на посилання нижче, щоб розблокувати свій аккаунт:'
       unlock_instruction_button: 'Розблокувати аккаунт:'
+      social_temp_auth_password: 'Ваш тимчасовий пароль ви можете його змінити в любий час!!!'
+      social_temp_auth_password_you_email: 'Ваш тимчасовий пароль ви можете його змінити в любий час!!!'
+      social_temp_auth_password_text:  "Ваш тимчасовий пароль: <b>%{parameter}</b> , щоб змінити його зайдіть на сторінку мої дані!"
     home:
       search: 'Пошук'
       search_input: 'Введіть назву пісні'

@@ -1,0 +1,11 @@
+p
+| #{t('views.mailer.welcome')} #{@resource.email} !
+
+p
+  = t('views.mailer.unlock_instruction_one')
+
+p
+  = t('views.mailer.unlock_instruction_two')
+
+p
+  = link_to t('views.mailer.unlock_instruction_button'), unlock_url(@resource, unlock_token: @token)

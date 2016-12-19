@@ -1,0 +1,29 @@
+= provide :site_title, 'Всі користувачі'
+= provide :li_all_users, 'active'
+.container
+  .col-xs-12
+    table.table.table-hover.all-user-table
+      thead
+      tr
+        th Номер
+        th Імя
+        th Email
+        th Роль
+      tbody
+      - @users.each_with_index do |user, i|
+        tr
+          td = i
+          td = user.name
+          td = user.email
+          td
+            - if user.has_role? :admin
+              = link_to 'user', "/#{I18n.locale}/user/#{user.id}/do_user", style: 'color: red'
+              |
+                /admin
+            - else
+              |
+                user/
+              = link_to 'admin', "/#{I18n.locale}/user/#{user.id}/do_admin", style: 'color: green'
+.row
+  .col-xs-12.text-align-center
+    = paginate @users

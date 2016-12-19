@@ -1,0 +1,27 @@
+= provide :site_title, t('views.pages.index')
+= provide :li_home, 'active'
+.row
+  .flex-center-block
+    .col-lg-6.col-md-8.col-sm-10.col-xs-12
+      .search-inputs
+        = form_for :song, url: "#{I18n.locale}/songs/search", method: :get do |f|
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+            input.mdl-textfield__input type="text" id="search" name="title" required="required"
+            label.mdl-textfield__label for="sample3"
+              = t('views.home.search_input')
+
+          .button-with-between
+            button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+              = fa_icon 'search'
+              '
+              = t('views.home.search')
+
+            = link_to songs_path, type: 'button', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
+              = fa_icon 'music'
+              '
+              = t('views.home.all_songs')
+
+            = link_to new_song_path, type: 'button', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
+              = fa_icon 'plus'
+              '
+              = t('views.home.add_song')

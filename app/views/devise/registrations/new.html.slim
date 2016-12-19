@@ -1,0 +1,62 @@
+= provide :site_title, t('views.pages.registration')
+= provide :li_sign_up, 'active'
+.row
+  .col-lg-5.col-lg-offset-4.col-md-5.col-md-offset-3.col-sm-10.col-xs-12
+    .demo-card-square.mdl-card.mdl-shadow--2dp id="devise-cart"
+      .mdl-card__title.mdl-card--expand
+        = image_tag('music/2', class: 'devise-image-cart')
+        h2.mdl-card__title-text
+          = t('views.pages.registration')
+
+      .mdl-card__actions.mdl-card--border.button-with-between
+        a type="button" href="/users/auth/facebook" class="btn-fb mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color: #4264aa"
+          = fa_icon 'facebook'
+          '
+          '
+            Facebook
+
+        a type="button" href="/users/auth/vkontakte" class="btn-fb mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color: #4C75A3"
+          = fa_icon 'vk'
+          '
+          '
+            Vkontakte
+
+        a type="button" href="/users/auth/twitter" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color: #55ACEE"
+          = fa_icon 'twitter'
+          '
+          '
+            Twitter
+
+      .mdl-card__supporting-text
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages_alert!
+
+          #devise-form
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              = f.text_field :name, class: 'mdl-textfield__input', required: true, minlength: 3
+              = f.label t('views.devise.name'), class: 'mdl-textfield__label'
+
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              = f.email_field :email, class: 'mdl-textfield__input', autofocus: true
+              = f.label :email, class: 'mdl-textfield__label'
+
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              = f.password_field :password, class: 'mdl-textfield__input', autocomplete: 'off'
+              = f.label t('views.devise.password'), class: 'mdl-textfield__label'
+              - if @minimum_password_length
+                em
+                | (#{@minimum_password_length} #{t('views.devise.length_password_min')})
+
+              br
+
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              = f.password_field :password_confirmation, class: 'mdl-textfield__input', autocomplete: 'off'
+              = f.label t('views.devise.password_confirmation'), class: 'mdl-textfield__label'
+
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              = recaptcha_tags
+            br
+            br
+            = f.submit t('views.devise.registration_button'), id: 'devise-button-submit', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
+            = spinner_css
+          = render 'devise/shared/links'

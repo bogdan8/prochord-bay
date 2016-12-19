@@ -1,0 +1,7 @@
+p
+  == t('views.mailer.hello', parameter: @user.name)
+p
+  = t('views.mailer.song_successful_add')
+p
+  = t('views.mailer.preview')
+= link_to @song.title, "/#{I18n.locale}/songs/#{@song.slug}"

@@ -1,0 +1,28 @@
+.row
+  .col-lg-8.col-lg-offset-2.col-xs-12
+    - @songs.each do |items|
+      .songs-list-block
+        span.mdl-chip.mdl-chip--contact
+          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+            = fa_icon('music')
+          span.mdl-chip__text.song-chip-text
+            .song-title-a
+              = link_to song_path(items)
+                = "#{items.performer} - #{items.title}"
+
+            .song-title-component
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                = link_to like_song_path(items)
+                  = fa_icon('heart')
+
+              span.mdl-chip__text.margin-right-teen
+                = items.likes.size
+
+              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+                = fa_icon('eye')
+              span.mdl-chip__text
+                = items.count_views
+
+.row
+  .col-xs-12.text-align-center
+    = paginate @songs

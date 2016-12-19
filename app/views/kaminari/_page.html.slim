@@ -1,0 +1,6 @@
+- if page.current?
+  li.page-item.active.active-pink
+    = link_to page, url, { remote: remote, rel: page.next? ? 'next' : page.prev? ? 'prev' : nil, class: 'page-link mdl-js-button mdl-js-ripple-effect', style: 'background-color: #ff4081; border-color: #ff4081' }
+- else
+  li.page-item
+    = link_to page, url, { remote: remote, rel: page.next? ? 'next' : page.prev? ? 'prev' : nil, class: 'page-link mdl-js-button mdl-js-ripple-effect' }

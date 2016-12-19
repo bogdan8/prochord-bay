@@ -46,6 +46,9 @@ en:
       unlock_instruction_one: 'Your account has been blocked due to excessive failed logon.'
       unlock_instruction_two: 'Click the link below to unlock your account:'
       unlock_instruction_button: 'Unlock account:'
+      social_temp_auth_password: 'Your temporary password, you can change it at any time!!!'
+      social_temp_auth_password_you_email: 'Your temporary password, you can change it at any time!!!'
+      social_temp_auth_password_text:  "Your temporary password: <b>%{parameter}</b> , to change it please visit my data!"
     home:
       search: 'Search'
       search_input: 'Enter the name of the song'

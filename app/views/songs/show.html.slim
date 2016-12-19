@@ -1,0 +1,50 @@
+= provide :site_title, @song.title
+= provide :li_all_songs, 'active'
+.row
+  .col-lg-8.col-lg-offset-2.col-xs-12
+    .songs-list-block
+      span.mdl-chip.mdl-chip--contact
+        span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+          = fa_icon('music')
+        span.mdl-chip__text.song-chip-text
+          .song-title-a
+            = "#{@song.performer} - #{@song.title}"
+
+          - if current_user && current_user.has_role?(:admin)
+            .song-title-component
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                = link_to edit_song_path(@song) do
+                  = fa_icon('edit')
+
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                = link_to song_path(@song), method: :delete, data: { confirm: t('views.song.delete.confirm') } do
+                  = fa_icon('remove')
+
+          - else
+            .song-title-component
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                = link_to like_song_path(@song) do
+                  = fa_icon('heart')
+
+              span.mdl-chip__text.margin-right-teen
+                = @song.likes.size
+
+              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+                = fa_icon('eye')
+              span.mdl-chip__text
+                = @song.count_views
+
+.row
+  .col-lg-8.col-lg-offset-3.col-xs-12
+    .song-body
+      pre
+        = @song.body.html_safe
+
+.row
+  .col-lg-6.col-lg-offset-3.col-xs-12
+    p.song-who-add
+      == t('views.song.thanks', parameter: @song.user.name)
+
+.row
+  .col-lg-8.col-lg-offset-2.col-xs-12
+    == social_share_button_tag(@song.title, desc: @song.body.to_s.strip.gsub!("'", "\""))

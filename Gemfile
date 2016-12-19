@@ -5,6 +5,7 @@ ruby '2.3.0'
 gem 'pg', '~> 0.18'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'uglifier', '>= 1.3.0'
+gem 'slim-rails'
 
 # for js
 gem 'coffee-rails', '~> 4.2'
