@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
+  pool: 50
   username: postgres
   password: 70sunogo
 
