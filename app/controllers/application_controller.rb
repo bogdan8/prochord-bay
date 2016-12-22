@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = exception.message
-    redirect_to main_app.root_url
+    respond_to do |format|
+      format.html { redirect_to main_app.root_url, flash: { error: exception.message } }
+      format.js { redirect_to main_app.root_url, flash: { error: exception.message } }
+    end
   end
 
   private

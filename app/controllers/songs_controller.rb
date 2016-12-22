@@ -48,10 +48,10 @@ class SongsController < ApplicationController
 
   def like
     if Like.find_by(user_id: current_user.id, song_id: @song.id)
-      redirect_to @song, flash: { error: t('controllers.songs.like_error') }
+      redirect_to song_path(@song), flash: { error: t('controllers.songs.like_error') }
     else
       Like.create(user_id: current_user.id, song_id: @song.id)
-      redirect_to @song, flash: { success: t('controllers.songs.like_success') }
+      redirect_to song_path(@song), flash: { success: t('controllers.songs.like_success') }
     end
   end
 

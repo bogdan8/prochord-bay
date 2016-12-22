@@ -12,10 +12,14 @@
 
             .song-title-component
               span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
-                = link_to like_song_path(items)
-                  = fa_icon('heart')
+                - unless items.likes.size != 0
+                  = link_to like_song_path(items)
+                    = fa_icon('heart')
+                - else
+                  .likes-user-songs
+                    = fa_icon('heart')
 
-              span.mdl-chip__text.margin-right-teen
+              span.mdl-chip__text.margin-right-teen id="song-id-#{items.id}"
                 = items.likes.size
 
               span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
