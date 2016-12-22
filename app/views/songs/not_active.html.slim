@@ -4,18 +4,18 @@
   .col-lg-8.col-lg-offset-2.col-xs-12
     - @songs.each do |items|
       .songs-list-block
-      span.mdl-chip.mdl-chip--contact
-        span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
-          = fa_icon('music')
-        span.mdl-chip__text.song-chip-text
-          .song-title-a
-            = link_to song_path(items) do
-              = items.performer - = items.title
+        span.mdl-chip.mdl-chip--contact
+          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+            = fa_icon('music')
+          span.mdl-chip__text.song-chip-text
+            .song-title-a
+              = link_to song_path(items) do
+                = "#{items.performer} - #{items.title}"
 
-          .song-title-component
-            span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
-              = link_to do_active_song_path(items) do
-                = fa_icon('check-square-o')
+            .song-title-component
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                = link_to do_active_song_path(items) do
+                  = fa_icon('check-square-o')
 
 .row
   .col-xs-12.text-align-center
