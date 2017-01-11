@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
+  add_flash_types :success, :danger, :error
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|

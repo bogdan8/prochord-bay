@@ -9,12 +9,12 @@ class UsersController < ApplicationController
 
   def do_admin
     @user.add_role(:admin)
-    redirect_to users_all_path, flash: { success: t('controllers.user.change_to_admin') }
+    redirect_to users_all_path, success: t('controllers.user.change_to_admin')
   end
 
   def do_user
     @user.add_role(:user)
-    redirect_to users_all_path, flash: { success: t('controllers.user.change_to_user') }
+    redirect_to users_all_path, success: t('controllers.user.change_to_user')
   end
 
   def delete_user_role

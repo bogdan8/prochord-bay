@@ -20,7 +20,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     if verify_recaptcha(model: @song) && @song.save
       UserMailer.send_add_song(@song.user, @song).deliver_now!
-      redirect_to @song, flash: { success: t('controllers.songs.success_create') }
+      redirect_to @song, success: t('controllers.songs.success_create')
     else
       flash[:error] = @song.errors.full_messages.to_sentence
       render :new
@@ -31,7 +31,7 @@ class SongsController < ApplicationController
 
   def update
     if verify_recaptcha(model: @song) && @song.update(song_params)
-      redirect_to @song, flash: { success: t('controllers.songs.success_update') }
+      redirect_to @song, success: t('controllers.songs.success_update')
     else
       flash[:error] = @song.errors.full_messages.to_sentence
       render :edit
@@ -40,7 +40,7 @@ class SongsController < ApplicationController
 
   def destroy
     if @song.destroy
-      redirect_to songs_path, flash: { success: t('controllers.songs.success_delete') }
+      redirect_to songs_path, success: t('controllers.songs.success_delete')
     else
       flash[:error] = @song.errors.full_messages.to_sentence
     end
@@ -48,10 +48,10 @@ class SongsController < ApplicationController
 
   def like
     if Like.find_by(user_id: current_user.id, song_id: @song.id)
-      redirect_to song_path(@song), flash: { error: t('controllers.songs.like_error') }
+      redirect_to song_path(@song), error: t('controllers.songs.like_error')
     else
       Like.create(user_id: current_user.id, song_id: @song.id)
-      redirect_to song_path(@song), flash: { success: t('controllers.songs.like_success') }
+      redirect_to song_path(@song), success: t('controllers.songs.like_success')
     end
   end
 
@@ -77,7 +77,7 @@ class SongsController < ApplicationController
   def do_active
     @song.update(active: 1)
     UserMailer.send_add_song_active(@song.user, @song).deliver_now!
-    redirect_to not_active_songs_path, flash: { success: t('controllers.songs.active') }
+    redirect_to not_active_songs_path, success: t('controllers.songs.active')
   end
 
   private
