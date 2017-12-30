@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource class: User
 
-  before_action :delete_user_role, only: [:do_admin, :do_user]
+  before_action :delete_user_role, only: %i[do_admin do_user]
 
   def index
     @users = User.all.page(params[:page]).per(30)

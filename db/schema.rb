@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209115039) do
+ActiveRecord::Schema.define(version: 20171230122023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,17 @@ ActiveRecord::Schema.define(version: 20161209115039) do
     t.string   "performer"
     t.string   "title"
     t.text     "body"
-    t.integer  "count_views", default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "popularity",  default: 0
-    t.integer  "active",      default: 0
-    t.integer  "likes_count", default: 0
+    t.integer  "count_views",         default: 0
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "active",              default: 0
+    t.integer  "likes_count",         default: 0
     t.string   "slug"
     t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["slug"], name: "index_songs_on_slug", unique: true, using: :btree
   end
 

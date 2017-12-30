@@ -1,12 +1,38 @@
+# == Schema Information
+#
+# Table name: songs
+#
+#  id                  :integer          not null, primary key
+#  performer           :string
+#  title               :string
+#  body                :text
+#  count_views         :integer          default(0)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  active              :integer          default(0)
+#  likes_count         :integer          default(0)
+#  slug                :string
+#  user_id             :integer
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#
+
 class Song < ApplicationRecord
   extend FriendlyId
+  include Paperclip::Glue
+
+  has_many :likes, dependent: :destroy
+  has_many :song, through: :likes, inverse_of: :songs
+  belongs_to :user
+
+  has_attached_file :avatar, styles: { thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   validates :title, presence: true
   validates :body, presence: true
 
-  has_many :likes, dependent: :destroy
-  has_many :song, through: :likes
-  belongs_to :user
 
   searchable do
     text :title.downcase
@@ -19,23 +45,5 @@ class Song < ApplicationRecord
 
   def normalize_friendly_id(input)
     input.to_s.to_slug.normalize(transliterations: :russian).to_s
-  end
-
-  def self.title_for(title)
-    song = where('lower(title) like ? ', "#{title.downcase}_%").where(active: 1)
-    song.order('created_at desc').limit(10).pluck(:title)
-  end
-
-  def self.index_songs
-    Song.find_each do |song|
-      index_title(song.title)
-      song.title.split.each { |t| index_title(t) }
-    end
-  end
-
-  def self.index_title(title)
-    where(title: title.downcase).where(active: 1).first_or_initialize.tap do |song|
-      song.increment! :popularity
-    end
   end
 end

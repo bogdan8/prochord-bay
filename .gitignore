@@ -15,18 +15,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-/.idea/.generators
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/prochord.iml
-/.idea/.rakeTasks
-/.idea/vcs.xml
-/.idea/workspace.xml
-/.idea/runConfigurations/Development__prochord.xml
-/.idea/runConfigurations/Production__prochord.xml
-/.idea/runConfigurations/spec__prochord.xml
-/.idea/runConfigurations/test__prochord.xml
-/.idea/.name
+/.idea/*
+/public/system/*
 /.env
 /solr/*
-/.idea/codeStyleSettings.xml

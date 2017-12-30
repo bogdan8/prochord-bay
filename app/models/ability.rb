@@ -7,14 +7,14 @@ class Ability
       can :manage, :all
     elsif user.has_role? :user
       can :read, :all
-      can [:create, :like], Song
-      cannot [:not_active, :do_active], Song
-      cannot [:do_admin, :do_user], User
+      can %i[create like], Song
+      cannot %i[not_active do_active], Song
+      cannot %i[do_admin do_user], User
     else
       can :read, :all
       can [:search], Song
-      cannot [:create, :like, :not_active, :do_active], Song
-      cannot [:do_admin, :do_user], User
+      cannot %i[create like not_active do_active], Song
+      cannot %i[do_admin do_user], User
     end
   end
 end

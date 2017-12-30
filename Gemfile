@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.3'
 
 # rails
 gem 'pg', '~> 0.18'
@@ -35,6 +35,8 @@ gem 'sunspot-queue'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'unicode'
+gem 'paperclip', '~> 5.0.0'
+
 
 # for devise
 gem 'cancancan'
@@ -52,6 +54,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'bullet'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
@@ -59,4 +62,4 @@ group :development do
   gem 'web-console'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

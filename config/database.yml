@@ -16,10 +16,12 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   pool: 50
   username: postgres
   password: 70sunogo
+  host: localhost
+  port: 5432
 
 development:
   <<: *default

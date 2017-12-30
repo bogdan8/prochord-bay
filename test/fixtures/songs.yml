@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: songs
+#
+#  id                  :integer          not null, primary key
+#  performer           :string
+#  title               :string
+#  body                :text
+#  count_views         :integer          default(0)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  active              :integer          default(0)
+#  likes_count         :integer          default(0)
+#  slug                :string
+#  user_id             :integer
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

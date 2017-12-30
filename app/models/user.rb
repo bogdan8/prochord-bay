@@ -1,3 +1,29 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :inet
+#  last_sign_in_ip        :inet
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  provider               :string
+#  uid                    :string
+#  name                   :string
+#
+
 class User < ApplicationRecord
   after_create :assign_default_role
   devise :database_authenticatable, :registerable,
@@ -5,6 +31,8 @@ class User < ApplicationRecord
          :confirmable, :omniauthable
 
   rolify
+  has_many :users_roles, dependent: :destroy
+  has_many :roles, through: :users_roles, inverse_of: :users
 
   has_many :likes
   has_many :user, through: :likes

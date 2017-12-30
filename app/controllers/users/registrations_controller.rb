@@ -1,15 +1,14 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
     before_action :configure_permitted_parameters
-    prepend_before_action :check_captcha, only: [:create, :update]
+    prepend_before_action :check_captcha, only: %i[create update]
 
     private
 
     def check_captcha
-      unless verify_recaptcha
-        self.resource = resource_class.new sign_up_params
-        respond_with_navigational(resource) { render :new }
-      end
+      return if verify_recaptcha
+      self.resource = resource_class.new sign_up_params
+      respond_with_navigational(resource) { render :new }
     end
 
     def configure_permitted_parameters

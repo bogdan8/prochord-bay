@@ -1,6 +1,6 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    before_action :social_user, only: [:twitter, :facebook]
+    before_action :social_user, only: %i[twitter facebook]
 
     def twitter; end
 
