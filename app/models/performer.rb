@@ -1,46 +1,38 @@
 # == Schema Information
 #
-# Table name: songs
+# Table name: performers
 #
 #  id                  :integer          not null, primary key
 #  title               :string
-#  body                :text
-#  count_views         :integer          default(0)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  active              :integer          default(0)
-#  likes_count         :integer          default(0)
 #  slug                :string
-#  user_id             :integer
 #  avatar_file_name    :string
 #  avatar_content_type :string
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
-#  performer_id        :integer
 #
 
-class Song < ApplicationRecord
+class Performer < ApplicationRecord
   extend FriendlyId
   include Paperclip::Glue
 
-  has_many :likes, dependent: :destroy
-  has_many :song, through: :likes, inverse_of: :songs
-  belongs_to :user
-  belongs_to :performer
+  has_many :songs, dependent: :destroy
 
-  has_attached_file :avatar, styles: { thumb: '100x100>' }, default_url: '/images/:style/missing.png'
+  has_attached_file :avatar, styles: {thumb: '100x100>'},
+                    default_url: '/images/:style/missing.png',
+                    path: ':rails_root/public/images/:class/:attachment/:id/:style/:filename',
+                    url: '/images/:class/:attachment/:id/:style/:filename'
   validates_attachment_content_type :avatar, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
 
   validates :title, presence: true
-  validates :body, presence: true
 
 
   searchable do
     text :title.downcase, stored: true
-    text :performer do
-      performer.title
+    text :songs do
+      songs.map { |song| song.title }
     end
-    integer :active
     time :created_at
   end
 

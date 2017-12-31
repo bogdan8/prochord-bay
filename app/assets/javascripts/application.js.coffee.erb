@@ -7,7 +7,11 @@
 #= require song.js.coffee.erb
 #= require social-share-button
 #= require turbolinks
+#= require select2
+
 #= require_tree .
 
 document.addEventListener 'turbolinks:load', ->
   componentHandler.upgradeDom()
+
+  $('.dropdown').select2 language: '<%= I18n.locale %>'

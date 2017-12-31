@@ -3,7 +3,6 @@
 # Table name: songs
 #
 #  id                  :integer          not null, primary key
-#  performer           :string
 #  title               :string
 #  body                :text
 #  count_views         :integer          default(0)
@@ -17,6 +16,7 @@
 #  avatar_content_type :string
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  performer_id        :integer
 #
 
 require 'test_helper'

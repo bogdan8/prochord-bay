@@ -84,7 +84,6 @@ en:
       remove_password: 'Delete my account'
       remember_me: "Remember me"
       resend_instruction: 'Re unlock instructions'
-
   controllers:
     user:
       success_sign_in: 'You have successfully signed!'
@@ -97,3 +96,9 @@ en:
       like_error: 'You already liked'
       like_success: 'You like'
       active: 'Activated'
+  paperclip:
+    errors:
+      attachment:
+        size: "Must be between %{min} and %{max} bytes."
+        content_type: "Unsupported content type"
+        presence: "Can't be blank"

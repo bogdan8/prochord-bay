@@ -25,7 +25,6 @@ ru:
               blank: "не может быть пуста"
             email:
               taken: 'Неправильный формат электронной почты'
-
   helpers:
     page_entries_info:
       more_pages:
@@ -112,7 +111,6 @@ ru:
       remove_password: 'Удалить мой аккаунт'
       remember_me: 'Запомнить меня'
       resend_instruction: 'Повторная разблокировать инструкции'
-
   controllers:
     user:
       success_sign_in: 'Вы успешно вошли!'
@@ -125,7 +123,6 @@ ru:
       like_error: 'Вам уже понравилось'
       like_success: 'Вам понравилось'
       active: 'Включен'
-
   unauthorized:
     default: "По умолчанию текст сообщения об ошибке."
     manage:
@@ -133,8 +130,13 @@ ru:
       user: "Запрещено управлять другими учетными записями пользователей."
     update:
       project: "Запрещено обновлять этот проект."
-
   recaptcha:
     errors:
       verification_failed: 'Вы не прошли проверку'
       recaptcha_unreachable: 'Ошибка'
+  paperclip:
+    errors:
+      attachment:
+        size: "Должно быть между %{min} и %{max} байтами."
+        content_type: "Неподдерживаемый тип содержимого"
+        presence: "Не может быть пустым"

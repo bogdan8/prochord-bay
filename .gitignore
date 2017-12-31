@@ -17,5 +17,6 @@
 .byebug_history
 /.idea/*
 /public/system/*
+/public/images/*
 /.env
 /solr/*

@@ -20,12 +20,14 @@ gem 'bootstrap-kaminari-views'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
+gem 'select2-rails'
 
 # for server
 gem 'babosa'
 gem 'dotenv-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
+gem 'paperclip', '~> 5.0.0'
 gem 'puma', '~> 3.0'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sidekiq'
@@ -35,7 +37,6 @@ gem 'sunspot-queue'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'unicode'
-gem 'paperclip', '~> 5.0.0'
 
 
 # for devise
@@ -51,6 +52,7 @@ group :development, :test do
   gem 'progress_bar'
   gem 'rack-mini-profiler'
   gem 'rubocop'
+  gem 'awesome_print'
 end
 
 group :development do

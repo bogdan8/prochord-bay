@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230122023) do
+ActiveRecord::Schema.define(version: 20171230144918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "uuid-ossp"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -37,6 +36,18 @@ ActiveRecord::Schema.define(version: 20171230122023) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+  create_table "performers", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "slug"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.index ["slug"], name: "index_performers_on_slug", unique: true, using: :btree
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.string   "resource_type"
@@ -48,7 +59,6 @@ ActiveRecord::Schema.define(version: 20171230122023) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "performer"
     t.string   "title"
     t.text     "body"
     t.integer  "count_views",         default: 0
@@ -62,6 +72,8 @@ ActiveRecord::Schema.define(version: 20171230122023) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "performer_id"
+    t.index ["performer_id"], name: "index_songs_on_performer_id", using: :btree
     t.index ["slug"], name: "index_songs_on_slug", unique: true, using: :btree
   end
 

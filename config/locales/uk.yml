@@ -25,7 +25,6 @@ uk:
               blank: "Не може бути порожнім"
             email:
               taken: 'Не правильний формат електронної пошти'
-
   helpers:
     page_entries_info:
       more_pages:
@@ -113,7 +112,6 @@ uk:
       remove_password: 'Видалити мій аккаунт'
       remember_me: "Запам'ятати мене"
       resend_instruction: 'Повторна розблокувати інструкції'
-
   controllers:
     user:
       success_sign_in: 'Ви успішно увійшли!'
@@ -126,7 +124,6 @@ uk:
       like_error: 'Вам уже сподобалось'
       like_success: 'Вам сподобалось'
       active: 'Активовано'
-
   unauthorized:
     default: "За замовчуванням текст повідомлення про помилку."
     manage:
@@ -134,8 +131,13 @@ uk:
       user: "Не дозволено керувати іншими обліковими записами користувачів."
     update:
       project: "Не дозволено оновлювати цей проект."
-
   recaptcha:
     errors:
       verification_failed: 'Ви не пройшли перевірку'
       recaptcha_unreachable: 'Помилка'
+  paperclip:
+    errors:
+      attachment:
+        size: "Повинен бути між %{min} та %{max} байтами."
+        content_type: "Непідтримуваний тип вмісту"
+        presence: "Не моеж бути порожнім"
