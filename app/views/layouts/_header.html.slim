@@ -22,6 +22,16 @@
 
     - if user_signed_in?
       - if current_user.has_role? :admin
+        li class="#{yield :li_add_performer}"
+          = link_to new_performer_path, class: 'mdl-menu__item' do
+            = fa_icon 'plus'
+            '
+            = t('views.home.add_performer')
+        li class="#{yield :li_all_performers}"
+          = link_to performers_path, class: 'mdl-menu__item' do
+            = fa_icon 'users'
+            '
+            = t('views.pages.performers')
         li class="#{yield :li_new_songs}"
           = link_to not_active_songs_path, class: 'mdl-menu__item' do
             = fa_icon 'music'
@@ -34,7 +44,7 @@
             '
             = t('views.pages.users')
 
-        li
+        li class="mdl-menu__item--full-bleed-divider"
           = link_to '/sidekiq', class: 'mdl-menu__item' do
             = fa_icon 'area-chart'
             '

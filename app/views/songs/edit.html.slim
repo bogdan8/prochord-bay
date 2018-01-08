@@ -10,7 +10,7 @@
           = t('views.home.add_song')
       .mdl-card__supporting-text
         = form_for @song, method: :put do |f|
-          #devise-form
+          #form
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               = f.collection_select(:performer_id, Performer.all, :id, :title, {}, {class: 'dropdown'})
 

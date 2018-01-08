@@ -9,7 +9,6 @@ Rails.application.routes.draw do
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'home#index'
   scope ':locale' do
-
     get '/home/search', to: 'home#search'
 
     resources :songs do
@@ -22,5 +21,9 @@ Rails.application.routes.draw do
     get 'users/all/', to: 'users#index'
     get 'user/:id/do_admin', to: 'users#do_admin'
     get 'user/:id/do_user', to: 'users#do_user'
+
+    scope module: :admin do
+      resources :performers
+    end
   end
 end

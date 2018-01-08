@@ -8,7 +8,9 @@
           = fa_icon('music')
         span.mdl-chip__text.song-chip-text
           .song-title-a
-            = "#{@song.performer.title} - #{@song.title}"
+            = link_to performer_path(@song.performer)
+              = @song.performer.title
+            = " - #{@song.title}"
 
           - if current_user && current_user.has_role?(:admin)
             .song-title-component

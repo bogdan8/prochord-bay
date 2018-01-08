@@ -1,24 +1,26 @@
 @import "variable"
 
-.songs-list-block
+.performers-list-block
   width: 100%
   .mdl-chip.mdl-chip--contact
+    display: flex
     width: 100%
-  .song-chip-text
+    height: 34px
+  .performer-chip-text
     width: 90%
-    .song-title-a
+    .performer-title-a
       position: absolute
       white-space: nowrap
       overflow: hidden
       text-overflow: ellipsis
       width: 50%
-    .song-title-component
+    .performer-title-component
       float: right
       a
         color: $white
         &:hover
           color: red
-      .likes-user-songs
+      .likes-user-performers
         color: red
   .mdl-color--teal-pink
     background-color: $pink
@@ -29,13 +31,10 @@
     &:hover
       color: $pink
 
-.song-body
-  width: 100%
-
 .text-align-center
   text-align: center
 
-#song-cart
+#performer-cart
   .mdl-card__title
     padding: 0
   .mdl-card__title-text
@@ -48,7 +47,8 @@
     background: no-repeat #46B6AC
     height: 300px
 
-.song-who-add
-  text-align: right
+.performer-songs-title
   color: $primary
-  margin-top: 15px
+  font-size: $font-size-title
+  margin:
+    top: 15px

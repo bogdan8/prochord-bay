@@ -1,0 +1,25 @@
+= provide :site_title, t('views.pages.all_performers')
+= provide :li_all_performers, 'active'
+.row
+  .col-lg-8.col-lg-offset-2.col-xs-12
+    - @performers.each do |item|
+      .performers-list-block
+        span.mdl-chip.mdl-chip--contact
+          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+            = fa_icon('user')
+          span.mdl-chip__text.performer-chip-text
+            .performer-title-a
+              = link_to performer_path(item)
+                = "#{item.title}"
+          .performer-title-component
+            span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+              = link_to edit_performer_path(item) do
+                = fa_icon('edit')
+
+            span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+              = link_to performer_path(item), method: :delete, data: {confirm: t('views.performer.delete.confirm')} do
+                = fa_icon('remove')
+
+.row
+  .col-xs-12.text-align-center
+    = paginate @performers

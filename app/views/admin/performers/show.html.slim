@@ -1,0 +1,55 @@
+= provide :site_title, @performer.title
+= provide :li_all_performers, 'active'
+.row
+  .col-lg-8.col-lg-offset-2.col-xs-12
+    .performers-list-block
+      span.mdl-chip.mdl-chip--contact
+        span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+          = fa_icon('music')
+        span.mdl-chip__text.performer-chip-text
+          .performer-title-a
+            = @performer.title
+
+          - if current_user && current_user.has_role?(:admin)
+            .performer-title-component
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                = link_to edit_performer_path(@performer) do
+                  = fa_icon('edit')
+
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                = link_to performer_path(@performer), method: :delete, data: { confirm: t('views.performer.delete.confirm') } do
+                  = fa_icon('remove')
+
+.row
+  .col-xs-12
+    .center.performer-songs-title
+      = t('views.home.songs')
+
+.row
+  .col-lg-8.col-lg-offset-2.col-xs-12
+    - @performer.songs.each do |items|
+      .songs-list-block
+        span.mdl-chip.mdl-chip--contact
+          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+            = fa_icon('music')
+          span.mdl-chip__text.song-chip-text
+            .song-title-a
+              = link_to song_path(items)
+                = "#{items.performer.title} - #{items.title}"
+
+            .song-title-component
+              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
+                - unless items.likes.size != 0
+                  = link_to like_song_path(items)
+                    = fa_icon('heart')
+                - else
+                  .likes-user-songs
+                    = fa_icon('heart')
+
+              span.mdl-chip__text.margin-right-teen id="song-id-#{items.id}"
+                = items.likes.size
+
+              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
+                = fa_icon('eye')
+              span.mdl-chip__text
+                = items.count_views
