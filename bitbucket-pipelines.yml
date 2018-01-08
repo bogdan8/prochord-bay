@@ -1,0 +1,23 @@
+image: calces/drone-rails-postgres-redis-node-and-phantomjs
+
+pipelines:
+  default:
+    - step:
+        script:
+          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
+          - apt-get update
+          - apt-get install -y npm
+          - bundler --version
+          - bundle install
+          - rspec
+        services:
+          - postgres
+
+definitions:
+  services:
+    postgres:
+      image: postgres
+      environment:
+        POSTGRES_DB: pipelines
+        POSTGRES_USER: test_user
+        POSTGRES_PASSWORD: test_user_password
