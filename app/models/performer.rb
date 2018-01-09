@@ -14,24 +14,23 @@
 #
 
 class Performer < ApplicationRecord
+  DEFAULT_URL = '/images/:style/missing.png'.freeze
+  PATH = ':rails_root/public/images/:class/:attachment/:id/:style/:filename'.freeze
+  URL = '/images/:class/:attachment/:id/:style/:filename'.freeze
   extend FriendlyId
   include Paperclip::Glue
 
   has_many :songs, dependent: :destroy
 
-  has_attached_file :avatar, styles: {thumb: '100x100>'},
-                    default_url: '/images/:style/missing.png',
-                    path: ':rails_root/public/images/:class/:attachment/:id/:style/:filename',
-                    url: '/images/:class/:attachment/:id/:style/:filename'
+  has_attached_file :avatar, styles: { thumb: '100x100>' }, default_url: DEFAULT_URL, path: PATH, url: URL
   validates_attachment_content_type :avatar, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
 
   validates :title, presence: true
 
-
   searchable do
     text :title.downcase, stored: true
     text :songs do
-      songs.map { |song| song.title }
+      songs.map(&:title)
     end
     time :created_at
   end

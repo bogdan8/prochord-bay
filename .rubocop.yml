@@ -27,6 +27,8 @@ AllCops:
     - '**/spec/rails_helper.rb'
     - 'config/**/**'
     - 'db/**/**'
+    - 'lib/**/**'
+    - 'bin/**'
 Rails:
   Enabled: true
 

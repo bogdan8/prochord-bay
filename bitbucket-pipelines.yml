@@ -10,6 +10,7 @@ pipelines:
           - bundler --version
           - bundle install
           - rspec
+          - rubocop
         services:
           - postgres
 

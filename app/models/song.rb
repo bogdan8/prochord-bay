@@ -34,7 +34,6 @@ class Song < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
 
-
   searchable do
     text :title.downcase, stored: true
     text :performer do

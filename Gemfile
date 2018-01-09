@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
 
 # rails
 gem 'pg', '~> 0.18'
@@ -38,7 +37,6 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'unicode'
 
-
 # for devise
 gem 'cancancan'
 gem 'devise'
@@ -48,11 +46,12 @@ gem 'omniauth-vkontakte'
 gem 'rolify'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug', platform: :mri
   gem 'progress_bar'
   gem 'rack-mini-profiler'
+  gem 'rspec-rails'
   gem 'rubocop'
-  gem 'awesome_print'
 end
 
 group :development do

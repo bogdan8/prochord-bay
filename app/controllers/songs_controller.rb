@@ -11,7 +11,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song.update_columns(count_views: @song.count_views + 1)
+    @song.update_attributes(count_views: @song.count_views + 1)
   end
 
   def new; end
