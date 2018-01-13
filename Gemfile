@@ -48,10 +48,18 @@ gem 'rolify'
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platform: :mri
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'parallel_tests'
   gem 'progress_bar'
   gem 'rack-mini-profiler'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'sunspot_test'
+  gem 'simplecov', require: false
 end
 
 group :development do
