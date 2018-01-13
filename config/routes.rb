@@ -18,12 +18,12 @@ Rails.application.routes.draw do
       get :do_active, on: :member
     end
 
-    get 'users/all/', to: 'users#index'
-    get 'user/:id/do_admin', to: 'users#do_admin'
-    get 'user/:id/do_user', to: 'users#do_user'
-
     scope module: :admin do
       resources :performers
+
+      get 'users/all/', to: 'users#index'
+      get 'user/:id/do_admin', to: 'users#do_admin'
+      get 'user/:id/do_user', to: 'users#do_user'
     end
   end
 end
