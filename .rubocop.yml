@@ -20,7 +20,6 @@ AllCops:
     - '**/config/initializers/devise.rb'
     - '**/config/initializers/rolify.rb'
     - '**/config/initializers/kaminari_config.rb'
-    - '**/test/test_helper.rb'
     - '**/spec/spec_helper.rb'
     - '**/spec/models/initiative_image_spec.rb'
     - '**/spec/models/user_spec.rb'
