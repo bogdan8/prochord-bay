@@ -40,3 +40,14 @@ Metrics/MethodLength:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"

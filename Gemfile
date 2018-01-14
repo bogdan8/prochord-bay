@@ -48,6 +48,7 @@ gem 'rolify'
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platform: :mri
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
@@ -57,9 +58,10 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'sunspot_test'
   gem 'simplecov', require: false
+  gem 'sunspot_test'
 end
 
 group :development do
