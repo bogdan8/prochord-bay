@@ -15,11 +15,6 @@
 
 FactoryBot.define do
   factory :performer do
-    title 'Test user'
-    avatar { Faker::Avatar.image }
-  end
-
-  factory :random_performer do
     title { Faker::Lorem.word }
     avatar { Faker::Avatar.image }
   end

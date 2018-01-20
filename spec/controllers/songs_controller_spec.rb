@@ -68,19 +68,25 @@ RSpec.describe SongsController, type: :controller do
   describe 'POST #update' do
     login_user
     it 'redirect to song page' do
-      post :update, params: { id: song.slug, locale: :en, song: { body: 'new text in body' } }
-      expect(response).to redirect_to(song_path(Song.last.slug))
+      body = 'new text in body'
+      post :update, params: { id: song.slug, locale: :en, song: { body: body } }
+      expect(Song.last.body).to eq(body)
+      expect(response).to redirect_to(song_path(song.slug))
     end
   end
 
   describe 'GET #destroy' do
     context 'if admin' do
       login_admin
-      it 'redirect to songs page' do
+      it 'the number of songs should decrease' do
         song.save
         songs = Song.count
         get :destroy, params: { id: song.slug, locale: :en }
         expect(Song.count).to eq(songs - 1)
+      end
+      it 'redirect to songs page' do
+        song.save
+        get :destroy, params: { id: song.slug, locale: :en }
         expect(response).to redirect_to(songs_path)
       end
     end
