@@ -50,6 +50,11 @@ RSpec.describe Admin::PerformersController, type: :controller do
       post :create, params: { performer: build(:performer).attributes, locale: :en }
       expect(response).to redirect_to(performer_path(Performer.last.slug))
     end
+
+    it 'render the new template if error' do
+      post :create, params: { locale: :en, performer: { title: '' } }
+      expect(response).to render_template('new')
+    end
   end
 
   describe 'GET #edit' do
@@ -72,6 +77,11 @@ RSpec.describe Admin::PerformersController, type: :controller do
       post :update, params: { id: performer.slug, locale: :en, performer: { title: 'title' } }
       expect(response).to redirect_to(performer_path(performer.slug))
     end
+
+    it 'render the new template if error' do
+      post :update, params: { id: performer.slug, locale: :en, performer: { title: '' } }
+      expect(response).to render_template('edit')
+    end
   end
 
   describe 'GET #destroy' do
@@ -79,13 +89,13 @@ RSpec.describe Admin::PerformersController, type: :controller do
     it 'the number of performers should decrease' do
       performer.save
       performers = Performer.count
-      get :destroy, params: { id: performer.slug, locale: :en }
+      delete :destroy, params: { id: performer.slug, locale: :en }
       expect(Performer.count).to eq(performers - 1)
     end
 
     it 'redirect to performers page' do
       performer.save
-      get :destroy, params: { id: performer.slug, locale: :en }
+      delete :destroy, params: { id: performer.slug, locale: :en }
       expect(response).to redirect_to(performers_path)
     end
   end
