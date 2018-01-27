@@ -65,6 +65,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'spring'
   gem 'annotate'
   gem 'bullet'
   gem 'listen', '~> 3.0.5'
