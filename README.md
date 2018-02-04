@@ -23,7 +23,6 @@
 > - 2: `rake sunspot:solr:start`
 > - 3: `rake sunspot:solr:reindexs`
 > - 4: `rake db:populate`
-> - 5: `rake db:songs_index`
 > - 6:  new window run: `sidekiq -q sunspot`
 
 ### users:
