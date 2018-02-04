@@ -44,8 +44,6 @@
               i
               | (#{t('views.devise.current_password_body')})
 
-            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              = recaptcha_tags
             br
             br
             = f.submit t('views.devise.password_edit_button'), id: 'devise-button-submit', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'
@@ -55,7 +53,7 @@
         = button_to t('views.devise.remove_password'),
                       registration_path(resource_name),
                       id: 'devise-button-submit',
-                      data: {confirm: t('views.song.delete.confirm') },
+                      data: { confirm: t('views.song.delete.confirm') },
                       class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent',
                       style: 'background-color: red',
                       method: :delete

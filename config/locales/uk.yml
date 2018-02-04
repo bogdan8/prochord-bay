@@ -104,7 +104,7 @@ uk:
       password_new_button: 'Надіслати інструкцію як змінити пароль'
       name: "Ім'я"
       registration_button: 'Зареєструватись'
-      current_password: 'Теперішній пароль'
+      current_password: 'Поточний пароль'
       current_password_body: 'нам потрібен поточний пароль для підтвердження змін'
       password_edit_button: 'Оновити'
       password_live_blank: 'залиште порожнім, якщо ви не хочете, щоб змінити його'

@@ -15,3 +15,24 @@ document.addEventListener 'turbolinks:load', ->
   componentHandler.upgradeDom()
 
   $('.dropdown').select2 language: '<%= I18n.locale %>'
+
+  window.fbAsyncInit = ->
+    FB.init
+      appId: '<%= ENV['FACEBOOK_KEY'] %>'
+      xfbml: true
+      version: 'v2.12'
+    FB.AppEvents.logPageView()
+    return
+
+  ((d, s, id) ->
+    js = undefined
+    fjs = d.getElementsByTagName(s)[0]
+    if d.getElementById(id)
+      return
+    js = d.createElement(s)
+    js.id = id
+    js.src = 'https://connect.facebook.net/en_US/sdk.js'
+    fjs.parentNode.insertBefore js, fjs
+    return
+  ) document, 'script', 'facebook-jssdk'
+
