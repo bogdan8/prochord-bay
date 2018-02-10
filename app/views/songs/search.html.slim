@@ -1,3 +1,5 @@
 = provide :site_title, t('views.home.search_results')
 = provide :li_all_songs, 'active'
+h2.mdl-card__title-text
+  = t('views.home.search_results')
 = render 'index', locals: { songs: @songs}

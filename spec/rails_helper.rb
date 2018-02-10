@@ -14,12 +14,25 @@ require 'devise'
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'paperclip/matchers'
-require 'sunspot_test/rspec'
 require 'capybara/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
+
+# Capybara
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.javascript_driver = :chrome
+
+Capybara.configure do |config|
+  config.default_max_wait_time = 10 # seconds
+  config.default_driver        = :selenium
+end
+
+Capybara.ignore_hidden_elements = false
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -29,6 +42,11 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
+  # Capybara
+  config.before(:each, type: :feature) do
+    Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
+  end
+
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Shoulda::Matchers::ActiveModel, type: :model
