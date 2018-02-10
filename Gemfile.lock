@@ -55,6 +55,8 @@ GEM
     annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
     arel (7.1.4)
     ast (2.4.0)
     autoprefixer-rails (7.2.5)
@@ -84,6 +86,9 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.2.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -132,6 +137,7 @@ GEM
     highline (1.7.10)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -400,6 +406,7 @@ DEPENDENCIES
   byebug
   cancancan
   capybara
+  chromedriver-helper
   coffee-rails (~> 4.2)
   database_cleaner
   devise

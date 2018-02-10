@@ -49,6 +49,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platform: :mri
   gem 'capybara'
+  gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
