@@ -13,6 +13,7 @@ Rails.application.routes.default_url_options[:host] = 'localhost:5000'
 require 'devise'
 require 'rspec/rails'
 require 'shoulda/matchers'
+require 'sunspot_test/rspec'
 require 'paperclip/matchers'
 require 'capybara/rspec'
 
@@ -45,6 +46,10 @@ RSpec.configure do |config|
   # Capybara
   config.before(:each, type: :feature) do
     Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
+  end
+
+  config.before(:each, type: :feature) do
+    default_url_options[:locale] = :en
   end
 
   config.include Devise::Test::ControllerHelpers, type: :controller
