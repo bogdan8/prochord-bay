@@ -1,6 +1,20 @@
 image: calces/drone-rails-postgres-redis-node-and-phantomjs
 
 pipelines:
+  default:
+    - step:
+        script:
+          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
+          - apt-get update
+          - apt-get install -y npm
+          - apt-get install -y google-chrome-stable
+          - bundler --version
+          - bundle install
+          - rspec
+          - rubocop
+        services:
+          - postgres
+          - chromedriver
   branches:
     develop:
       - step:
@@ -15,6 +29,7 @@ pipelines:
             - rubocop
           services:
             - postgres
+            - chromedriver
     feature:
       - step:
           script:
@@ -28,7 +43,7 @@ pipelines:
             - rubocop
           services:
             - postgres
-
+            - chromedriver
 
 definitions:
   services:
@@ -38,3 +53,8 @@ definitions:
         POSTGRES_DB: pipelines
         POSTGRES_USER: test_user
         POSTGRES_PASSWORD: test_user_password
+    chromedriver:
+      image: selenium/standalone-chrome
+      ports:
+        - "4444:4444"
+        - "5900:5900"
