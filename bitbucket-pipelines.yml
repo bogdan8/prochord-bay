@@ -6,15 +6,6 @@ pipelines:
         script:
           - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
           - apt-get update
-          - apt-get install -y npm
-          - apt-get install -y google-chrome-stable
-          - bundler --version
-          - bundle install
-          - rspec
-          - rubocop
-        services:
-          - postgres
-          - chromedriver
   branches:
     develop:
       - step:
@@ -22,7 +13,6 @@ pipelines:
             - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
             - apt-get update
             - apt-get install -y npm
-            - apt-get install -y google-chrome-stable
             - bundler --version
             - bundle install
             - rspec
@@ -36,7 +26,6 @@ pipelines:
             - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
             - apt-get update
             - apt-get install -y npm
-            - apt-get install -y google-chrome-stable
             - bundler --version
             - bundle install
             - rspec
