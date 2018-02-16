@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'pg', '~> 0.18'
 gem 'rails', '~> 5.0.0'
 gem 'slim-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'therubyracer', git: 'https://github.com/cowboyd/therubyracer.git'
 
 # for js
 gem 'coffee-rails', '~> 4.2'
