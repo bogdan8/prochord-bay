@@ -30,7 +30,7 @@ Capybara.javascript_driver = :chrome
 
 Capybara.configure do |config|
   config.default_max_wait_time = 10 # seconds
-  config.default_driver        = :selenium
+  config.default_driver = :selenium
 end
 
 Capybara.ignore_hidden_elements = false
@@ -45,6 +45,7 @@ end
 RSpec.configure do |config|
   # Capybara
   config.before(:each, type: :feature) do
+    I18n.locale = :en
     Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
   end
 

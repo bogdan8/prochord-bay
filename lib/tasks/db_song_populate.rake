@@ -49,6 +49,7 @@ namespace :db do
                                     active: 1,
                                     user_id: 1)
       song.index! if song.save
+      print '#'
     end
   end
 end
