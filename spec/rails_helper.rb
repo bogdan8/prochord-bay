@@ -59,7 +59,6 @@ RSpec.configure do |config|
   config.include Shoulda::Matchers::ActiveRecord, type: :model
   # devise
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.use_transactional_fixtures = true
 
   config.infer_spec_type_from_file_location!
 

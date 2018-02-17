@@ -21,14 +21,8 @@
 
 FactoryBot.define do
   factory :song do
-    title 'Title Song'
-    body 'Body for song with some text...'
-    active 1
-    avatar { Faker::Avatar.image }
-  end
-
-  factory :random_song do
     title { Faker::Lorem.word }
+    slug { Faker::Lorem.word }
     body { Faker::Lorem.paragraphs }
     active 1
     avatar { Faker::Avatar.image }

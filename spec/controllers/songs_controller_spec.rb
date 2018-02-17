@@ -27,14 +27,14 @@ RSpec.describe SongsController, type: :controller do
 
       it 'redirect to song page' do
         post :create, params: { song: build(:song).attributes, locale: :en }
-        expect(response).to redirect_to(song_path(Song.last.id))
+        expect(response).to redirect_to(song_path(Song.last.slug))
       end
     end
 
     context 'if error' do
       login_user
       it 'renders the new template' do
-        post :create, params: { song: { title: 'test' }, locale: :en }
+        post :create, params: { song: { title: :test }, locale: :en }
         expect(response).to render_template('new')
       end
     end
@@ -66,12 +66,14 @@ RSpec.describe SongsController, type: :controller do
   end
 
   describe 'POST #update' do
-    login_user
-    it 'redirect to song page' do
-      body = 'new text in body'
-      post :update, params: { id: song.slug, locale: :en, song: { body: body } }
-      expect(Song.last.body).to eq(body)
-      expect(response).to redirect_to(song_path(song.slug))
+    context 'redirect' do
+      login_user
+      it 'to song page' do
+        body = 'new text in body'
+        post :update, params: { id: song.slug, locale: :en, song: { body: body } }
+        expect(Song.find_by(slug: song.slug).body).to eq(body)
+        expect(response).to redirect_to(song_path(song.slug))
+      end
     end
   end
 
@@ -100,29 +102,35 @@ RSpec.describe SongsController, type: :controller do
   end
 
   describe 'GET #like' do
-    login_user
-    it 'redirect to song page' do
-      get :like, params: { id: song.slug, user_id: user.id, song_id: song.id, locale: :en }
-      expect(response).to redirect_to(song_path(Song.last.slug))
+    context 'redirect' do
+      login_user
+      it 'to song page' do
+        get :like, params: { id: song.slug, user_id: user.id, song_id: song.id, locale: :en }
+        expect(response).to redirect_to(song_path(Song.last.slug))
+      end
     end
   end
 
   describe 'GET #do_active' do
-    login_admin
-    it 'set active' do
-      song.active = 0
-      song.save
-      get :do_active, params: { id: song.slug, locale: :en }
-      expect(Song.last.active).to eq(1)
-      expect(response).to redirect_to(not_active_songs_path)
+    context 'set active' do
+      login_admin
+      it 'redirect and change active' do
+        song.active = 0
+        song.save
+        get :do_active, params: { id: song.slug, locale: :en }
+        expect(Song.last.active).to eq(1)
+        expect(response).to redirect_to(not_active_songs_path)
+      end
     end
   end
 
   describe 'GET #not_active' do
-    login_admin
-    it 'renders the not_active template' do
-      get :not_active, params: { id: song.slug, locale: :en }
-      expect(response).to render_template('not_active')
+    context 'renders' do
+      login_admin
+      it 'the not_active template' do
+        get :not_active, params: { id: song.slug, locale: :en }
+        expect(response).to render_template('not_active')
+      end
     end
   end
 end

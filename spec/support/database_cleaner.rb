@@ -1,12 +1,12 @@
-RSpec.configure do |config|
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
+DatabaseCleaner.strategy = :truncation
 
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
+RSpec.configure do |config|
+  config.use_transactional_fixtures = false
+  config.before :suite do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with :truncation
+  end
+  config.after :each do
+    DatabaseCleaner.clean
   end
 end
