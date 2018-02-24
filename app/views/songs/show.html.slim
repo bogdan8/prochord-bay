@@ -19,7 +19,7 @@
                   = fa_icon('edit')
 
               span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
-                = link_to song_path(@song), method: :delete, data: { confirm: t('views.song.delete.confirm') } do
+                = link_to song_path(@song), id: @song.id, method: :delete, data: { confirm: t('views.song.delete.confirm') } do
                   = fa_icon('remove')
 
           - else

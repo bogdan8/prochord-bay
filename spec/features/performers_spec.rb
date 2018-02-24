@@ -14,6 +14,7 @@ end
 feature 'Performer' do
   let(:user) { create(:user) }
   let(:performer) { build(:performer) }
+
   scenario '#create' do
     create_performer(user, performer)
   end
