@@ -37,19 +37,31 @@ uk:
           other: "Відображені <b>всі %{count}</b> %{entry_name}"
           zero: "Жодного %{entry_name}"
   views:
+    global:
+      page:
+        delete_confirm: 'Ви згодні?'
+      form: 
+        add: 'Добавити'
+        edit: 'Редагувати'
     pages:
       index: 'Головна'
       new_songs: 'Нові пісні'
       users: 'Користувачі'
       processes: 'Процеси'
+      performers: 'Виконавці'
+      new_performers: 'Додати виконавця'
       edit_profile: 'Редагувати профіль'
       edit_song: 'Редагувати пісню'
+      edit_performer: 'Редагувати виконавця'
       sign_out: 'Вихід'
       sign_in: 'Вхід'
       registration: 'Реєстрація'
       ukrain: 'Українська'
       russian: 'Російська'
       english: 'Англійська'
+    performer:
+      form:
+        title: 'Назва:'
     song:
       performer: 'Виконавець:'
       title: 'Назва:'
@@ -60,7 +72,7 @@ uk:
     mailer:
       hello: "Привіт: <b>%{parameter} </b>"
       song_successful: 'Вашу пісню добавлено, очікуйте підтвердження її адміністратором сайту'
-      song_successful_add: 'Вашу пісню успішно опубліковано на сайті'
+      song_successful_add: 'Вашу пісню опубліковано на сайті'
       preview: 'Щоб переглянути її зайдіть на'
       thanks: 'Дякуємо за розуміння!'
       welcome: 'Ласкаво просимо'
@@ -114,16 +126,20 @@ uk:
       resend_instruction: 'Повторна розблокувати інструкції'
   controllers:
     user:
-      success_sign_in: 'Ви успішно увійшли!'
+      success_sign_in: 'Ви увійшли!'
       change_to_admin: 'Змінено на адміна'
       change_to_user: 'Змінено на користувача'
     songs:
-      success_create: 'Успішно додано'
-      success_update: 'Відредаговано'
-      success_delete: 'Видалено'
+      success_create: 'Пісню додано'
+      success_update: 'Пісню відредаговано'
+      success_delete: 'Пісню видалено'
       like_error: 'Вам уже сподобалось'
       like_success: 'Вам сподобалось'
       active: 'Активовано'
+    performers:
+      success_create: 'Виконавця додано'
+      success_update: 'Виконавця відредаговано'
+      success_delete: 'Виконавця видалено'
   unauthorized:
     default: "За замовчуванням текст повідомлення про помилку."
     manage:

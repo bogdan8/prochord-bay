@@ -69,17 +69,17 @@ RSpec.describe Admin::PerformersController, type: :controller do
     login_admin
     it 'change title' do
       title = 'this new title'
-      post :update, params: { id: performer.slug, locale: :en, performer: { title: title } }
+      post :update, params: { id: Performer.last.slug, locale: :en, performer: { title: title } }
       expect(Performer.last.title).to eq(title)
     end
 
     it 'redirect ot performer page' do
-      post :update, params: { id: performer.slug, locale: :en, performer: { title: 'title' } }
-      expect(response).to redirect_to(performer_path(performer.slug))
+      post :update, params: { id: Performer.last.slug, locale: :en, performer: { title: 'title' } }
+      expect(response).to redirect_to(performer_path(Performer.last.slug))
     end
 
     it 'render the new template if error' do
-      post :update, params: { id: performer.slug, locale: :en, performer: { title: '' } }
+      post :update, params: { id: Performer.last.slug, locale: :en, performer: { title: '' } }
       expect(response).to render_template('edit')
     end
   end

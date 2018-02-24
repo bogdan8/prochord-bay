@@ -21,8 +21,8 @@
 
 FactoryBot.define do
   factory :song do
-    title { Faker::Lorem.word }
-    slug { Faker::Lorem.word }
+    title { Faker::Lorem.characters(10) }
+    slug { Faker::Lorem.characters(10) }
     body { Faker::Lorem.paragraphs }
     active 1
     avatar { Faker::Avatar.image }

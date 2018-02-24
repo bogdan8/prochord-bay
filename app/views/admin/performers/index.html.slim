@@ -1,6 +1,8 @@
-= provide :site_title, t('views.pages.all_performers')
+= provide :site_title, t('views.pages.performers')
 = provide :li_all_performers, 'active'
 .row
+  .col-xs-12.text-align-center
+    p = t('views.pages.performers')
   .col-lg-8.col-lg-offset-2.col-xs-12
     - @performers.each do |item|
       .performers-list-block
@@ -17,7 +19,7 @@
                 = fa_icon('edit')
 
             span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
-              = link_to performer_path(item), method: :delete, data: {confirm: t('views.performer.delete.confirm')} do
+              = link_to performer_path(item), method: :delete, data: {confirm: t('views.global.page.delete_confirm'), id: item.id} do
                 = fa_icon('remove')
 
 .row

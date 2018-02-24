@@ -36,19 +36,31 @@ ru:
           one: "Показано <b>%{count}</b> %{entry_name}"
           other: "Показаны <b>все %{count}</b> %{entry_name}"
   views:
+    global:
+      page:
+        delete_confirm: 'Вы согласны?'
+      form: 
+        add: 'Добавить'
+        edit: 'Изменить'
     pages:
       index: 'Главная'
       new_songs: 'Новые песни'
       users: 'Пользователи'
       processes: 'Процессы'
+      performers: 'Исполнители'
+      new_performers: 'Добавить исполнителя'
       edit_profile: 'Редактировать профиль'
       edit_song: 'Редактировать песню'
+      edit_performer: 'Редактировать исполнителя'
       sign_out: 'Выход'
       sign_in: 'Вход'
       registration: 'Регистрация'
       ukrain: 'Украинский'
       russian: 'Русский'
       english: 'Английский'
+    performer:
+      form:
+        title: 'Название:'
     song:
       performer: 'Исполнитель:'
       title: 'Название:'
@@ -59,7 +71,7 @@ ru:
     mailer:
       hello: "Здравствуйте: <b>%{parameter} </b>"
       song_successful: 'Вашу песню добавлено, ожидайте подтверждения ее администратором сайта'
-      song_successful_add: 'Вашу песню успешно опубликован на сайте'
+      song_successful_add: 'Вашу песню опубликован на сайте'
       preview: 'Чтобы просмотреть зайдите на'
       thanks: 'Спасибо за понимание!'
       welcome: 'Добро пожаловать'
@@ -113,16 +125,20 @@ ru:
       resend_instruction: 'Повторная разблокировать инструкции'
   controllers:
     user:
-      success_sign_in: 'Вы успешно вошли!'
+      success_sign_in: 'Вы вошли!'
       change_to_admin: 'Изменено на админа'
       change_to_user: 'Изменено на пользователя'
     songs:
-      success_create: 'Успешно добавлен'
-      success_update: 'Отредактировано'
-      success_delete: 'Удален'
+      success_create: 'Песню добавлен'
+      success_update: 'Песню отредактировано'
+      success_delete: 'Песню удален'
       like_error: 'Вам уже понравилось'
       like_success: 'Вам понравилось'
       active: 'Включен'
+    performers:
+      success_create: 'Исполнителя добавлено'
+      success_update: 'Исполнителя отредактировано'
+      success_delete: 'Исполнителя удалено'
   unauthorized:
     default: "По умолчанию текст сообщения об ошибке."
     manage:

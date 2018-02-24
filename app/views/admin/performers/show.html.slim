@@ -17,7 +17,7 @@
                   = fa_icon('edit')
 
               span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
-                = link_to performer_path(@performer), method: :delete, data: { confirm: t('views.performer.delete.confirm') } do
+                = link_to performer_path(@performer), id: @performer.id, method: :delete, data: { confirm: t('views.global.page.delete_confirm') } do
                   = fa_icon('remove')
 
 .row

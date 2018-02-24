@@ -15,7 +15,8 @@
 
 FactoryBot.define do
   factory :performer do
-    title { Faker::Lorem.word }
+    title { Faker::Lorem.characters(10) }
+    slug { Faker::Lorem.characters(10) }
     avatar { Faker::Avatar.image }
   end
 end

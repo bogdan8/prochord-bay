@@ -9,19 +9,31 @@ en:
           other: Displaying <b>all %{count}</b> %{entry_name}
           zero: No %{entry_name} found
   views:
+    global:
+      page:
+        delete_confirm: 'Do you agree?'
+      form: 
+        add: 'Add'
+        edit: 'Edit'
     pages:
       index: 'Home'
       new_songs: 'New songs'
       users: 'Users'
       processes: 'Processes'
+      performers: 'Performers'
+      new_performers: 'Add performer'
       edit_profile: 'Edit profile'
       edit_song: 'Edit song'
+      edit_performer: 'Edit performer'
       sign_out: 'Entrance'
       sign_in: 'Sign in'
       registration: 'Registration'
       ukrain: 'Ukrainian'
       russian: 'Russian'
       english: 'English'
+    performer:
+      form:
+        title: 'Name:'
     song:
       performer: 'Performer:'
       title: 'Name:'
@@ -32,7 +44,7 @@ en:
     mailer:
       hello: "Hello: <b>%{parameter} </b>"
       song_successful: 'Your Song added, pending its site administrator'
-      song_successful_add: 'Your song successfully posted online'
+      song_successful_add: 'Your song posted online'
       preview: 'To view it visit'
       thanks: 'Thank you for understanding!'
       welcome: 'Welcome'
@@ -54,7 +66,7 @@ en:
       search_input: 'Enter the name of the song'
       search_results: 'Search result'
       all_songs: 'All songs'
-      add_song: 'Add a song'
+      add_song: 'Add song'
     pagination:
       first: "&laquo; First"
       last: "Last &raquo;"
@@ -86,16 +98,20 @@ en:
       resend_instruction: 'Re unlock instructions'
   controllers:
     user:
-      success_sign_in: 'You have successfully signed!'
+      success_sign_in: 'You have signed!'
       change_to_admin: 'Changed to admin'
       change_to_user: 'Changed to user'
     songs:
-      success_create: 'Successfully added'
-      success_update: 'Edited'
-      success_delete: 'Deleted'
+      success_create: 'Song added'
+      success_update: 'Song edited'
+      success_delete: 'Song deleted'
       like_error: 'You already liked'
       like_success: 'You like'
       active: 'Activated'
+    performers:
+      success_create: 'Performer added'
+      success_update: 'Performer edited'
+      success_delete: 'Performer deleted'
   paperclip:
     errors:
       attachment:
