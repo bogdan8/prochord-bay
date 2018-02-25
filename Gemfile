@@ -12,7 +12,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'jquery-ui-rails', '~> 4.2.1'
-gem 'turbolinks', '~> 5'
 
 # for style
 gem 'bootstrap-kaminari-views'

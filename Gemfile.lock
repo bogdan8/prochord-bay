@@ -460,7 +460,6 @@ DEPENDENCIES
   sunspot_solr
   sunspot_test
   therubyracer!
-  turbolinks (~> 5)
   tzinfo-data
   unicode
   web-console
