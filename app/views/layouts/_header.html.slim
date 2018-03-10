@@ -62,6 +62,12 @@
           '
           = t('views.pages.sign_out')
 
+      li class="mdl-menu__item--full-bleed-divider #{yield :change_color}"
+        = link_to "user/color/#{current_user.color == 'white' ? 'black' : 'white'}", class: 'mdl-menu__item' do
+          = fa_icon 'sign-out'
+          '
+          = current_user.color == 'white' ? 'Black' : 'White'
+
     - else
       li class="#{yield :li_sign_in}"
         = link_to new_user_session_path, class: 'mdl-menu__item' do

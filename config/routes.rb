@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'home#index'
+  scope module: :users do
+    get 'user/color/:color', to: 'users#color'
+  end
   scope ':locale' do
     get '/home/search', to: 'home#search'
 

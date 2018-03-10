@@ -19,7 +19,7 @@ default: &default
   encoding: utf8
   pool: 50
   username: postgres
-  password: 70sunogo
+  password: 12365478aA
   host: localhost
   port: 5432
 

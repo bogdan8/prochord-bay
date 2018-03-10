@@ -5,7 +5,7 @@ namespace :db do
   desc 'Populate the table Song with songs'
   task populate: :environment do
     begin
-      1.upto(3).each do |number|
+      1.upto(10).each do |number|
         website = "https://mychords.net/zarub/page/#{number}/"
         page = Nokogiri::HTML(open(website))
         page.css('td.b-listing-singers__item__name_m a').each do |item|
@@ -36,12 +36,13 @@ namespace :db do
   private
 
   def save_data(avatar, body, title)
+    preloader = ['_', '/', '*', '\\']
     performer = Performer.where(title: title.split(' - ')[0]).first_or_create!(title: title.split(' - ')[0],
                                                                                avatar: avatar)
     performer.index! if performer.save
     song = Song.where(performer_id: performer.id, title: title.split(' - ')[1])
     if song.count != 0
-      puts "I'm here!"
+      print "#"
     else
       song = performer.songs.create(title: title.split(' - ')[1],
                                     body: body,
@@ -49,7 +50,7 @@ namespace :db do
                                     active: 1,
                                     user_id: 1)
       song.index! if song.save
-      print '#'
+      print '.'
     end
   end
 end

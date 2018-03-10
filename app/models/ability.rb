@@ -15,7 +15,7 @@ class Ability
       can :read, :all
       can [:search], Song
       cannot %i[create like not_active do_active], Song
-      cannot %i[do_admin do_user], User
+      cannot %i[do_admin do_user color], User
       cannot :manage, Performer
     end
   end
