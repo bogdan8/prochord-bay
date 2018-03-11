@@ -1,0 +1,9 @@
+$(function() {
+  $('#search').autocomplete({
+    source: '/<%= I18n.locale %>/home/search',
+    messages: {
+      noResults: '',
+      results() {}
+    }
+  })
+});

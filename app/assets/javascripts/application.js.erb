@@ -1,0 +1,36 @@
+#= require jquery
+#= require jquery.ui.all
+#= require jquery_ujs
+#= require bootstrap
+#= require material
+#= require song.js.erb
+#= require home
+#= require social-share-button
+#= require select2
+
+#= require_tree .
+
+$(function() {
+  $('.dropdown').select2({language: '<%= I18n.locale %>'});
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '<%= ENV['FACEBOOK_KEY'] %>',
+      xfbml: true,
+      version: 'v2.12'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id) {
+    var js = undefined;
+    var fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  })(document, 'script', 'facebook-jssdk');
+});

@@ -7,10 +7,8 @@ gem 'slim-rails'
 gem 'therubyracer', git: 'https://github.com/cowboyd/therubyracer.git'
 
 # for js
-gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'jquery-turbolinks'
 gem 'jquery-ui-rails', '~> 4.2.1'
 
 # for style
