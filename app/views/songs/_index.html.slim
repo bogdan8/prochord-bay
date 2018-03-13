@@ -1,32 +1,22 @@
 .row
-  .col-lg-8.col-lg-offset-2.col-xs-12
-    - @songs.each do |items|
-      .songs-list-block
-        span.mdl-chip.mdl-chip--contact
-          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
-            = fa_icon('music')
-          span.mdl-chip__text.song-chip-text
-            .song-title-a
-              = link_to song_path(items)
-                = "#{items.performer.title} - #{items.title}"
-
-            .song-title-component
-              span.mdl-chip__contact.mdl-color--teal-pink.mdl-color-text--white
-                - unless items.likes.size != 0
-                  = link_to like_song_path(items)
-                    = fa_icon('heart')
-                - else
-                  .likes-user-songs
-                    = fa_icon('heart')
-
-              span.mdl-chip__text.margin-right-teen id="song-id-#{items.id}"
-                = items.likes.size
-
-              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white
-                = fa_icon('eye')
-              span.mdl-chip__text
-                = items.count_views
-
+  - @songs.each do |song|
+    .col-lg-4.col-sm-4.col-xs-12.center.bottom
+      .demo-card-event.mdl-card.mdl-shadow--2dp
+        .mdl-card__title.mdl-card--expand style="background: url('#{song.avatar}'); background-position: center; background-repeat: no-repeat; background-size: cover;"
+          .card-header-left
+            .material-icons.mdl-badge.mdl-badge--overlap data-badge="#{song.likes.size}" 
+              - if current_user && !song.likes.any? { |like| like.user_id === current_user.id }
+                = link_to like_song_path(song)
+                  = fa_icon('heart')
+              - else
+                .likes-user-songs
+                  = fa_icon('heart')
+            .material-icons.mdl-badge.mdl-badge--overlap data-badge="#{song.count_views}" 
+              = fa_icon('eye')
+        .mdl-card__actions.mdl-card--border
+          = link_to song_path(song)
+            .mdl-button.mdl-button--colore.mdl-js-button.mdl-js-ripple-effect
+              = "#{song.performer.title} - #{song.title}"
 .row
   .col-xs-12.text-align-center
     = paginate @songs

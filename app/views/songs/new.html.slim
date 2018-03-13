@@ -1,17 +1,26 @@
 = provide :site_title, t('views.home.add_song')
 = provide :li_add_song, 'active'
-.row
+
+.row.card
   .col-lg-5.col-lg-offset-4.col-md-5.col-md-offset-3.col-sm-10.col-xs-12
     /! Square card
-    .demo-card-square.mdl-card.mdl-shadow--2dp id='song-cart'
+    .demo-card-square.mdl-card.mdl-shadow--2dp id='song-card'
       .mdl-card__title.mdl-card--expand
-        = image_tag('music/4', class: 'devise-image-cart')
+        = image_tag('music/4', class: 'devise-image-card')
         h2.mdl-card__title-text
           = t('views.home.add_song')
 
       .mdl-card__supporting-text
-        = form_for @song do |f|
+        = form_for @song, html: { multipart: true } do |f|
           #form
+            .file_input_div
+              .file_input
+                label.image_input_button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--mini-fab.mdl-js-ripple-effect.mdl-button--colored
+                  i.material-icons file_upload
+                  input.none#file_input_file type="file" name="song[avatar]"
+              .mdl-textfield.mdl-js-textfield.textfield-demo#file_input_text_div
+                input.file_input_text.mdl-textfield__input#file_input_text type="text" disabled="disabled" readonly="readonly" placeholder="#{t('views.global.form.avatar')}"
+
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               = f.label t('views.song.performer'), class: 'mdl-textfield__label'
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label

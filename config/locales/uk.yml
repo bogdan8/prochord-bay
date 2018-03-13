@@ -43,6 +43,7 @@ uk:
       form: 
         add: 'Добавити'
         edit: 'Редагувати'
+        avatar: 'Аватар'
     pages:
       index: 'Головна'
       new_songs: 'Нові пісні'

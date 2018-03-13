@@ -15,6 +15,7 @@ en:
       form: 
         add: 'Add'
         edit: 'Edit'
+        avatar: 'Avatar'
     pages:
       index: 'Home'
       new_songs: 'New songs'

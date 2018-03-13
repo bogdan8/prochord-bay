@@ -42,6 +42,7 @@ ru:
       form: 
         add: 'Добавить'
         edit: 'Изменить'
+        avatar: 'Аватар'
     pages:
       index: 'Главная'
       new_songs: 'Новые песни'

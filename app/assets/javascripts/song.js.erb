@@ -6,4 +6,14 @@ $(function() {
       results() {}
     }
   })
+
+  $('#add').click(function () {
+    var fontSize = parseInt($('.song-body pre').css('font-size'));
+    $('.song-body pre').css({'font-size': fontSize + 1 + "px"});
+  });
+
+  $('#subtract').click(function () {
+    var fontSize = parseInt($('.song-body pre').css('font-size'));
+    $('.song-body pre').css({'font-size': fontSize - 1 + "px"});
+  });
 });

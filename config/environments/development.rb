@@ -55,6 +55,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
   ActionMailer::Base.smtp_settings = {
     address:        'smtp.gmail.com',
     port:           587,
