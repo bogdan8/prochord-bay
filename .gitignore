@@ -19,5 +19,7 @@
 /public/system/*
 /public/images/*
 /.env
+/config/database.yml
+/config/secrets.yml
 /solr/*
-/coverage/*
+/coverage
