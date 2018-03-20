@@ -2,11 +2,11 @@ set :stage, :production
 set :branch, :feature
 set :user, :prochordbay
 
-role :app, %w{prochordbay@192.168.0.101}
-role :web, %w{prochordbay@192.168.0.101}
-role :db, %w{prochordbay@192.168.0.101}
+role :app, %w{prochordbay@192.168.0.103}
+role :web, %w{prochordbay@192.168.0.103}
+role :db, %w{prochordbay@192.168.0.103}
 
-server '192.168.0.101', user: fetch(:user), roles: %w{app, web}, primary: true
+server '192.168.0.103', user: fetch(:user), roles: %w{app, web}, primary: true
 
 set :deploy_to, "/home/#{fetch(:user)}"
 
