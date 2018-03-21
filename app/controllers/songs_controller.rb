@@ -2,12 +2,12 @@ class SongsController < ApplicationController
   load_and_authorize_resource find_by: :slug
 
   def index
-    search = Song.search(include: [:performer, :likes]) do
-      with :active, 1
-      order_by :created_at, :desc
-      paginate page: params[:page], per_page: 15
-    end
-    @songs = search.results
+    #search = Song.search(include: [:performer, :likes]) do
+    #  with :active, 1
+    #  order_by :created_at, :desc
+    #  paginate page: params[:page], per_page: 15
+    #end
+    @songs = Song.all
   end
 
   def show

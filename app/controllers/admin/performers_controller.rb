@@ -3,11 +3,11 @@ module Admin
     load_and_authorize_resource find_by: :slug
 
     def index
-      search = Performer.search do
-        order_by :created_at, :desc
-        paginate page: params[:page], per_page: 30
-      end
-      @performers = search.results
+      #search = Performer.search do
+      #  order_by :created_at, :desc
+      #  paginate page: params[:page], per_page: 30
+      #end
+      @performers = Performer.all
     end
 
     def show; end

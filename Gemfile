@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.3.3"
+ruby "2.4.1"
 
 # rails
 gem 'pg', '~> 0.18'
@@ -30,9 +30,8 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sidekiq'
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'social-share-button'
-gem 'sunspot-queue'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+gem 'elasticsearch-model', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
+gem 'elasticsearch-rails', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
 gem 'unicode'
 
 # for devise
@@ -60,7 +59,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
-  gem 'sunspot_test'
 end
 
 group :development do

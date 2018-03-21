@@ -13,7 +13,6 @@ Rails.application.routes.default_url_options[:host] = 'localhost:5000'
 require 'devise'
 require 'rspec/rails'
 require 'shoulda/matchers'
-require 'sunspot_test/rspec'
 require 'paperclip/matchers'
 require 'capybara/rspec'
 

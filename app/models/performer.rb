@@ -27,14 +27,6 @@ class Performer < ApplicationRecord
 
   validates :title, presence: true
 
-  searchable do
-    text :title.downcase, stored: true
-    text :songs do
-      songs.map(&:title)
-    end
-    time :created_at
-  end
-
   friendly_id :title, use: [:slugged]
 
   def normalize_friendly_id(input)

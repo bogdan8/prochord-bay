@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/elastic/elasticsearch-rails.git
+  revision: 7815039c0f78ed0b9b896936875ee4d01855390e
+  branch: master
+  specs:
+    elasticsearch-model (6.0.0.alpha1)
+      activesupport (> 3)
+      elasticsearch (> 1)
+      hashie
+    elasticsearch-rails (6.0.0.alpha1)
+
+GIT
   remote: git://github.com/sinatra/sinatra.git
   revision: 4831ab658046ff12f8c3cb17a9833f942f49f7ff
   specs:
@@ -146,6 +157,14 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    elasticsearch (6.0.1)
+      elasticsearch-api (= 6.0.1)
+      elasticsearch-transport (= 6.0.1)
+    elasticsearch-api (6.0.1)
+      multi_json
+    elasticsearch-transport (6.0.1)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -257,7 +276,6 @@ GEM
       ast (~> 2.4.0)
     pg (0.21.0)
     powerpack (0.1.1)
-    pr_geohash (1.0.0)
     progress_bar (1.2.0)
       highline (~> 1.6)
       options (~> 2.3.0)
@@ -308,9 +326,6 @@ GEM
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
     rolify (5.2.0)
-    rsolr (2.1.0)
-      builder (>= 2.1.2)
-      faraday (>= 0.9.0)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -391,19 +406,6 @@ GEM
       net-ssh (>= 2.8.0)
     sshkit-interactive (0.2.3)
       sshkit (~> 1.12)
-    sunspot (2.2.7)
-      pr_geohash (~> 1.0)
-      rsolr (>= 1.1.1, < 3)
-    sunspot-queue (0.10.3)
-      sunspot_rails (>= 1.3.0)
-    sunspot_rails (2.2.7)
-      nokogiri
-      rails (>= 3)
-      sunspot (= 2.2.7)
-    sunspot_solr (2.2.7)
-    sunspot_test (0.4.1)
-      sunspot_rails (>= 2.1.1)
-      sunspot_solr
     temple (0.8.0)
     thor (0.20.0)
     thread_safe (0.3.6)
@@ -449,6 +451,8 @@ DEPENDENCIES
   database_cleaner
   devise
   dotenv-rails
+  elasticsearch-model!
+  elasticsearch-rails!
   factory_bot_rails
   faker
   font-awesome-rails
@@ -484,14 +488,13 @@ DEPENDENCIES
   social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
-  sunspot-queue
-  sunspot_rails
-  sunspot_solr
-  sunspot_test
   therubyracer!
   tzinfo-data
   unicode
   web-console
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.16.1

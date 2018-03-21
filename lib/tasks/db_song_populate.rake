@@ -39,7 +39,6 @@ namespace :db do
     preloader = ['_', '/', '*', '\\']
     performer = Performer.where(title: title.split(' - ')[0]).first_or_create!(title: title.split(' - ')[0],
                                                                                avatar: avatar)
-    performer.index! if performer.save
     song = Song.where(performer_id: performer.id, title: title.split(' - ')[1])
     if song.count != 0
       print "#"
@@ -49,7 +48,6 @@ namespace :db do
                                     count_views: 0,
                                     active: 1,
                                     user_id: 1)
-      song.index! if song.save
       print '.'
     end
   end
